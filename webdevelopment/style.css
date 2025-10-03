@@ -1,0 +1,43 @@
+/* General page background */
+body {
+  background-color: #140914;   /* deep dark purple */
+  color: #FFFFFF;              /* white text for readability */
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Headings */
+h1 {
+  color: #DC69E0;              /* bright highlight purple */
+  font-size: 42px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Paragraphs */
+p {
+  color: #AA51AD;              /* softer magenta purple */
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Example: button or links */
+a, button {
+  background-color: #78397A;   /* muted violet */
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+a:hover, button:hover {
+  background-color: #462147;   /* deep plum on hover */
+}
