@@ -254,17 +254,6 @@ h1{
   outline-offset: 3px;
 }
 
-/* Soft content box (looks like an invisible border) */
-.content-box{
-  max-width: 900px;                 /* keeps lines readable */
-  margin: 0 auto;                   /* centers the box */
-  padding: 24px 28px;               /* breathing room inside */
-  border: 1px solid rgba(255,255,255,.08); /* barely-there border */
-  border-radius: 16px;              /* soft corners */
-  background: rgba(255,255,255,.03);/* ultra subtle panel (optional) */
-  box-shadow: 0 8px 30px rgba(0,0,0,.15);  /* gentle depth (optional) */
-}
-
-/* Tighten spacing inside the box */
-.content-box > * + *{ margin-top: 1rem; }
+/* keep paragraphs to a readable line length */
+.measure { max-width: 65ch; margin-inline: auto; }
 }
