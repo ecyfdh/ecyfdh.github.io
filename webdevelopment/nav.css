@@ -1,0 +1,76 @@
+/* Base layout for header */
+.site-header{
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: 1rem;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+/* Logo sizing */
+.site-logo{
+  height: 40px; width: auto; display: block;
+}
+
+/* Flexbox nav */
+.site-nav{}
+.nav-list{
+  display: flex;                /* Flexbox requirement */
+  align-items: center;
+  gap: clamp(.5rem, 2vw, 1.25rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links adopt your theme vars from style.css */
+.site-nav a{
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: .2px;
+
+  color: var(--fg, #fff);
+  background: transparent;
+  transition: background .2s ease, color .2s ease, transform .08s ease;
+}
+
+/* Hover/focus */
+.site-nav a:hover,
+.site-nav a:focus-visible{
+  background: rgba(220,105,224,.18);               /* matches #DC69E0 vibe */
+  outline: none;
+}
+
+/* Current page state */
+.site-nav a[aria-current="page"],
+.site-nav a.is-active{
+  background: rgba(220,105,224,.28);
+  color: #fff;
+}
+
+/* Responsive: stack if viewport is narrow */
+@media (max-width: 640px){
+  .site-header{
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+  }
+  .nav-list{
+    width: 100%;
+    justify-content: space-between; /* or center/space-around */
+    flex-wrap: wrap;
+  }
+}
+
+/* Optional: skip link for accessibility (works if not already in style.css) */
+.skip-link{
+  position: absolute; left: -999px;
+}
+.skip-link:focus{
+  left: 12px; top: 12px; z-index: 9999;
+  background: #000; color: #fff; padding: .5rem .75rem; border-radius: .5rem;
+}
