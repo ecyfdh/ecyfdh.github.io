@@ -1,43 +1,47 @@
-<!--
-  Name: [Your Name]
-  Date: [Today's Date]
-  Page: Starter Template
-  Description: A reusable HTML5 boilerplate for future projects
--->
-
-<!-- This is the main HTML5 document declaration -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Character encoding -->
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yenzer Template</title>
 
-  <!-- Mobile-friendly scaling -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Your site-wide styles (colors, fonts, etc.) -->
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- Title of the page -->
-  <title>My Starter Template</title>
-
-  <!-- Link to external CSS for styling -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Navigation-only styles (Flexbox layout, hover, spacing, etc.) -->
+  <link rel="stylesheet" href="nav.css" />
 </head>
 <body>
-  <!-- Site header (logo and navigation will go here later) -->
-  <header>
-    <h2>Website Header</h2>
-    <!-- Navigation will be added here -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <!-- Use your real path (e.g., webdevelopment/logo.png) -->
+    <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <!-- Use aria-current="page" or .is-active class on the current page -->
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Main content section -->
-  <main>
-    <!-- Sample heading for testing -->
-    <h1>Hello, world!</h1>
-    <p>This is a starter template. Add your content here.</p>
+  <main id="main" class="container">
+    <!-- Page-specific content goes here -->
+    <h1>Page Title</h1>
+    <p>Starter content…</p>
   </main>
 
-  <!-- Footer with your name and current date -->
-  <footer>
-    <p>&copy; Elizabeth Yenzer - 9/11/25</p>
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Elizabeth Yenzer</small>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
