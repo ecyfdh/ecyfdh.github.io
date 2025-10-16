@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Elizabeth Yenzer – Portfolio</title>
 
-  <!-- Global stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Site-wide styles + Navigation styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="nav.css" />
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root{
@@ -19,23 +20,15 @@
       --fg: #f5f7fb;
       --muted: #c8ceda;
       --accent: #DC69E0;
+      /* If index.html is in /webdevelopment/, use url('hero-placeholder.jpg') instead. */
       --hero-image: url('webdevelopment/hero-placeholder.jpg');
     }
 
     body{ margin:0; background:var(--bg); color:var(--fg); font-family:Lato, sans-serif; }
 
-    header{
-      position:fixed; top:0; left:0; right:0; height:64px;
-      display:flex; align-items:center; justify-content:center;
-      background:rgba(8,10,16,.8); backdrop-filter:blur(6px);
-      border-bottom:1px solid rgba(255,255,255,.1);
-      z-index:10;
-    }
-    .brand{ font-family:Montserrat, sans-serif; font-weight:700; }
-    .brand b{ color:var(--accent); }
-
+    /* HERO layout (nav is styled in nav.css) */
     main{
-      display:grid; place-items:center; min-height:100vh; padding-top:64px;
+      display:grid; place-items:center; min-height:100vh; padding-top:96px; /* room for sticky header */
       background:
         radial-gradient(1200px 600px at 85% 10%, rgba(220,105,224,.12), rgba(220,105,224,0) 60%),
         var(--hero-image) center/cover no-repeat;
@@ -47,10 +40,9 @@
 
     .hero-grid{
       display:grid; align-items:center; gap:2rem;
-      width:min(1120px, 92%);
-      margin:auto;
+      width:min(1120px, 92%); margin:auto;
     }
-    @media(min-width:880px){
+    @media (min-width: 880px){
       .hero-grid{ grid-template-columns:1.1fr 0.9fr; }
     }
 
@@ -63,7 +55,7 @@
 
     h1{
       font-family:Montserrat, sans-serif; font-weight:800; line-height:1.1;
-      font-size:clamp(2rem,3.6vw+1rem,3.75rem); margin:.25rem 0 .75rem;
+      font-size:clamp(2rem, 3.6vw + 1rem, 3.75rem); margin:.25rem 0 .75rem;
     }
     .lead{ font-size:1.125rem; color:var(--muted); max-width:65ch; }
 
@@ -88,11 +80,22 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header>
-    <div class="container brand">Elizabeth <b>Yenzer</b></div>
+  <!-- Sticky header with logo + Flexbox nav (styled only in nav.css) -->
+  <header class="site-header">
+    <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main id="main" role="region" aria-label="About Section">
+  <main id="main" role="region" aria-label="Hero Section">
     <div class="hero-grid">
       <section>
         <span class="eyebrow">About</span>
@@ -111,7 +114,8 @@
 
       <aside>
         <div class="card">
-          <img src="webdevelopment/hero-placeholder.jpg" alt="Portrait or project image for About page">
+          <!-- If index.html is inside /webdevelopment/, change to src="hero-placeholder.jpg" -->
+          <img src="webdevelopment/hero-placeholder.jpg" alt="Portrait or project image for About page" />
         </div>
       </aside>
     </div>
