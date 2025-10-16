@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Elizabeth Yenzer – Portfolio</title>
 
-  <!-- Site-wide styles + Navigation styles -->
+  <!-- Site-wide + Nav styles -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="nav.css" />
 
@@ -14,76 +14,50 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Keep ONLY hero-specific CSS here -->
   <style>
     :root{
-      --bg: #0e0f13;
-      --fg: #f5f7fb;
-      --muted: #c8ceda;
-      --accent: #DC69E0;
-      /* If index.html is in /webdevelopment/, use url('hero-placeholder.jpg') instead. */
-      --hero-image: url('webdevelopment/hero-placeholder.jpg');
+      /* If your image is in the same folder as this file, use url('hero-placeholder.jpg') */
+      --hero-image: url('hero-placeholder.jpg');
     }
 
-    body{ margin:0; background:var(--bg); color:var(--fg); font-family:Lato, sans-serif; }
-
-    /* HERO layout (nav is styled in nav.css) */
     main{
-      display:grid; place-items:center; min-height:100vh; padding-top:96px; /* room for sticky header */
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      padding-top: 96px; /* room for sticky header */
       background:
         radial-gradient(1200px 600px at 85% 10%, rgba(220,105,224,.12), rgba(220,105,224,0) 60%),
         var(--hero-image) center/cover no-repeat;
-      position:relative; overflow:hidden;
+      position: relative;
+      overflow: hidden;
     }
     main::before{
-      content:""; position:absolute; inset:0; background:rgba(8,10,16,.7); z-index:-1;
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(8,10,16,.7);
+      z-index: -1;
     }
 
     .hero-grid{
-      display:grid; align-items:center; gap:2rem;
-      width:min(1120px, 92%); margin:auto;
+      display: grid;
+      align-items: center;
+      gap: 2rem;
+      width: min(1120px, 92%);
+      margin: auto;
     }
     @media (min-width: 880px){
-      .hero-grid{ grid-template-columns:1.1fr 0.9fr; }
+      .hero-grid{ grid-template-columns: 1.1fr 0.9fr; }
     }
-
-    .eyebrow{
-      display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .6rem;
-      border-radius:999px; font-size:.85rem; letter-spacing:.3px; color:#0a0d14;
-      background:var(--accent);
-      box-shadow:0 8px 30px rgba(220,105,224,.25);
-    }
-
-    h1{
-      font-family:Montserrat, sans-serif; font-weight:800; line-height:1.1;
-      font-size:clamp(2rem, 3.6vw + 1rem, 3.75rem); margin:.25rem 0 .75rem;
-    }
-    .lead{ font-size:1.125rem; color:var(--muted); max-width:65ch; }
-
-    .cta-row{ display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.25rem; }
-
-    .quote{
-      margin-top:2rem; padding-left:1rem; border-left:3px solid rgba(255,255,255,.2);
-      color:var(--muted); font-style:italic; max-width:60ch;
-    }
-
-    .card{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:1.25rem; overflow:hidden;
-      width:100%; height:100%; min-height:360px;
-    }
-    .card img{ width:100%; height:100%; object-fit:cover; }
-
-    footer{ position:fixed; right:1rem; bottom:1rem; opacity:.75; font-size:.85rem; }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Sticky header with logo + Flexbox nav (styled only in nav.css) -->
+  <!-- Sticky header with logo + Flexbox nav (styled in nav.css) -->
   <header class="site-header">
     <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
-
     <nav class="site-nav" aria-label="Primary">
       <ul class="nav-list">
         <li><a href="index.html" aria-current="page">Home</a></li>
@@ -98,6 +72,7 @@
   <main id="main" role="region" aria-label="Hero Section">
     <div class="hero-grid">
       <section>
+        <span class="eyebrow">About</span>
         <h1>Hi, I’m Elizabeth Yenzer.</h1>
         <p class="lead">
           I’m an animator with a particular focus on 3D animation, where I enjoy bringing ideas and characters to life in dynamic and engaging ways. My passion lies in visual storytelling, using movement, design, and expression to convey emotions and narratives that connect with people. Whether it’s crafting detailed worlds or subtle character moments, I’m driven by the challenge of making stories resonate through animation.
@@ -113,19 +88,4 @@
 
       <aside>
         <div class="card">
-          <!-- If index.html is inside /webdevelopment/, change to src="hero-placeholder.jpg" -->
-          <img src="webdevelopment/hero-placeholder.jpg" alt="Portrait or project image for About page" />
-        </div>
-      </aside>
-    </div>
-  </main>
-
-  <footer>
-    <span>© <span id="year"></span> Elizabeth Yenzer</span>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+          <!
