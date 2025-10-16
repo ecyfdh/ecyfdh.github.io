@@ -41,13 +41,13 @@ h1, h2, h3, h4, h5, h6{
   color: var(--brand);
 }
 
-/* Keep paragraphs readable but NOT globally centered */
+/* paragraphs */
 p{
-  color: var(--muted);
+  color: var(--fg);          /* was var(--muted) */
   font-size: 18px;
   line-height: 1.6;
   margin: 0 0 1rem 0;
-  max-width: 70ch;           /* nice measure */
+  max-width: 70ch;
 }
 
 /* Utility when you *do* want centered layouts */
