@@ -121,12 +121,13 @@ h1{
   margin: .25rem 0 .75rem;
 }
 
-/* Lead paragraph under the H1 */
+/* lead paragraph under H1 */
 .lead{
   font-size: 1.125rem;
-  color: var(--muted);
+  color: var(--fg);          /* was var(--muted) */
   max-width: 65ch;
 }
+
 
 /* CTA row spacing */
 .cta-row{
