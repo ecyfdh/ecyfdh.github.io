@@ -1,28 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About – Elizabeth Yenzer</title>
+
+  <!-- Site-wide styles and nav styles (same folder) -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="nav.css" />
 </head>
 <body>
-  <h1>Welcome to My Website</h1>
-  <p>Hello! My name is Elizabeth Yenzer, and I’m an animator with a passion for 3D design and storytelling. This page is where visitors can learn more about me.</p>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <h2>Things I’m working with lately</h2>
-  <!-- Unordered list with 4+ items -->
-  <ul class="about-list">
-    <li>3D animation in Blender (rigging, physics, lighting)</li>
-    <li>Story-driven visuals and character moments</li>
-    <li>Building a clean, accessible portfolio site</li>
-    <li>Iterating fast with style guides and components</li>
-    <li>Test</li>
-  </ul>
+  <header class="site-header">
+    <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <h1>Welcome to My Website</h1>
+    <p>Hello! My name is Elizabeth Yenzer, and I’m an animator with a passion for 3D design and storytelling. This page is where visitors can learn more about me.</p>
+
+    <h2>Things I’m working with lately</h2>
+    <ul class="about-list">
+      <li>3D animation in Blender (rigging, physics, lighting)</li>
+      <li>Story-driven visuals and character moments</li>
+      <li>Building a clean, accessible portfolio site</li>
+      <li>Iterating fast with style guides and components</li>
+    </ul>
+
+    <h2>Resume</h2>
+    <p class="prose">
+      <a class="resume-link" href="Resume.pdf" target="_blank" rel="noopener">
+        Download My Resume (PDF)
+      </a>
+    </p>
+  </main>
+
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Elizabeth Yenzer</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
-  <h2>Resume</h2>
-<p class="prose">
-  <a class="resume-link" href="Resume.pdf" target="_blank" rel="noopener">Download My Resume (PDF)</a>
-</p>
-
 </html>
+
