@@ -7,7 +7,7 @@
   --bg: #140914;       /* deep dark purple */
   --fg: #ffffff;       /* white text */
   --muted: #AA51AD;    /* softer magenta purple for paragraphs */
-  --brand: #DC69E0;    /* bright highlight purple (headings) */
+  --brand: #DC69E0;    /* bright highlight purple (headings/badge) */
   --cta: #78397A;      /* button/link default */
   --cta-hover: #462147;
 }
@@ -19,7 +19,7 @@ body{
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: 'Lato', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  font-family: 'Lato', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
 }
 
@@ -75,7 +75,6 @@ a{
   align-items: center;
   justify-content: center;
   gap: .5rem;
-
   padding: 10px 20px;
   border-radius: 999px;
   font-weight: 700;
@@ -89,13 +88,79 @@ a{
 .btn--primary:hover{ background: var(--cta-hover); }
 .btn--primary:active{ transform: translateY(1px); }
 
-/* Outline/ghost option used outside HERO if you want it */
+/* Outline/ghost option */
 .btn--ghost{
   background: transparent;
   color: var(--fg);
   border: 1px solid rgba(255,255,255,.25);
 }
 .btn--ghost:hover{ border-color: rgba(255,255,255,.5); }
+
+/* ------------------------------
+   Shared “index look” components
+   ------------------------------ */
+
+/* Badge (purple pill) */
+.eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-size: .85rem;
+  letter-spacing: .3px;
+  color: #0a0d14;
+  background: var(--brand);
+  box-shadow: 0 8px 30px rgba(220,105,224,.25);
+}
+
+/* Headline scale you liked on index */
+h1{
+  font-weight: 800;
+  font-size: clamp(2rem, 3.6vw + 1rem, 3.75rem);
+  margin: .25rem 0 .75rem;
+}
+
+/* Lead paragraph under the H1 */
+.lead{
+  font-size: 1.125rem;
+  color: var(--muted);
+  max-width: 65ch;
+}
+
+/* CTA row spacing */
+.cta-row{
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+/* Pull-quote style */
+.quote{
+  margin-top: 2rem;
+  padding-left: 1rem;
+  border-left: 3px solid rgba(255,255,255,.2);
+  color: var(--muted);
+  font-style: italic;
+  max-width: 60ch;
+}
+
+/* Card (image container) */
+.card{
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+}
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* ------------------------------
    Opt-in centered sections (non-HERO)
@@ -115,57 +180,53 @@ a{
 /* ------------------------------
    Small helpers
    ------------------------------ */
-.hidden { display:none !important; }
-
+.hidden{ display: none !important; }
 
 /* ------------------------------
-   Small helpers
+   About page list styles
    ------------------------------ */
-.hidden { 
-  display: none !important; 
-}
-
-/* ===== About page list styles ===== */
 .about-list{
-  /* change bullet type + spacing */
   list-style-type: square;      /* options: disc | circle | square | none */
   margin: 1rem 0 2rem;
   padding-left: 1.25rem;        /* space for bullets */
 }
 
 .about-list li{
-  font-size: 1.05rem;           /* set size */
+  font-size: 1.05rem;
   line-height: 1.6;
-  color: var(--muted, #AA51AD); /* use theme var with a fallback */
+  color: var(--muted, #AA51AD);
   margin: .35rem 0;
   transition: color .2s ease, transform .08s ease;
 }
 
-/* color the bullet itself (modern browsers) */
-.about-list li::marker{
-  color: var(--brand, #DC69E0);
+/* bullet color */
+.about-list li::marker{ color: var(--brand, #DC69E0); }
+
+/* hover/focus */
+.about-list li:hover,
+.about-list li:focus-within{
+  color: #ffffff;
+  transform: translateX(2px);
 }
 
-/* optional hover effect */
-.about-list li:hover{
-  color: #ffffff;               /* brighten text on hover */
-  transform: translateX(2px);   /* tiny nudge for feedback */
-}
-
-/* Keyboard focus (accessibility) if you ever make list items links */
-.about-list a:focus-visible{
+/* if items contain <a> */
+.about-list li a:hover,
+.about-list li a:focus-visible{
+  color: #ffffff;
   outline: 2px dashed var(--brand, #DC69E0);
   outline-offset: 2px;
 }
-   
-/* ===== Resume link (Box Model practice) ===== */
+
+/* ------------------------------
+   Resume link (Box Model practice)
+   ------------------------------ */
 .resume-link{
   display: inline-block;                 /* so padding/background apply cleanly */
   padding: 12px 16px;                    /* BOX MODEL: padding */
   margin: 12px 0 24px;                   /* BOX MODEL: margin */
-  border: 2px solid var(--brand, #DC69E0);/* BOX MODEL: border */
+  border: 2px solid var(--brand, #DC69E0); /* BOX MODEL: border */
   border-radius: 10px;                   /* optional rounding */
-  background: rgba(220,105,224, 0.12);   /* BOX MODEL: background color */
+  background: rgba(220,105,224, 0.12);  /* BOX MODEL: background color */
   color: #ffffff;                        /* readable text on dark bg */
   text-decoration: none;                 /* remove underline */
   font-weight: 700;
