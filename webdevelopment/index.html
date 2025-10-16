@@ -5,41 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Elizabeth Yenzer – Portfolio</title>
 
-  <!-- Site-wide + Nav styles -->
+  <!-- site-wide + nav styles -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="nav.css" />
 
-  <!-- Fonts -->
+  <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Keep ONLY hero-specific CSS here -->
+  <!-- only layout helpers for the hero (no background image) -->
   <style>
-    :root{
-      /* If your image is in the same folder as this file, use url('hero-placeholder.jpg') */
-      --hero-image: url('hero-placeholder.jpg');
-    }
-
     main{
       display: grid;
       place-items: center;
       min-height: 100vh;
       padding-top: 96px; /* room for sticky header */
-      background:
-        radial-gradient(1200px 600px at 85% 10%, rgba(220,105,224,.12), rgba(220,105,224,0) 60%),
-        var(--hero-image) center/cover no-repeat;
-      position: relative;
-      overflow: hidden;
     }
-    main::before{
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(8,10,16,.7);
-      z-index: -1;
-    }
-
     .hero-grid{
       display: grid;
       align-items: center;
@@ -55,7 +37,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Sticky header with logo + Flexbox nav (styled in nav.css) -->
+  <!-- sticky header with logo + nav -->
   <header class="site-header">
     <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
     <nav class="site-nav" aria-label="Primary">
@@ -72,7 +54,7 @@
   <main id="main" role="region" aria-label="Hero Section">
     <div class="hero-grid">
       <section>
-        <span class="eyebrow">About</span>
+      
         <h1>Hi, I’m Elizabeth Yenzer.</h1>
         <p class="lead">
           I’m an animator with a particular focus on 3D animation, where I enjoy bringing ideas and characters to life in dynamic and engaging ways. My passion lies in visual storytelling, using movement, design, and expression to convey emotions and narratives that connect with people. Whether it’s crafting detailed worlds or subtle character moments, I’m driven by the challenge of making stories resonate through animation.
@@ -87,5 +69,6 @@
       </section>
 
       <aside>
-        <div class="card">
-          <!
+        <!-- square-ish image card on the side -->
+        <div class="card" style="max-height: 420px;">
+          <img src="hero-placeholder.jpg" alt
