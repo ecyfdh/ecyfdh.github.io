@@ -210,6 +210,14 @@ h1{
   transform: translateX(2px);
 }
 
+/* match index's top spacing under the sticky header */
+.page { padding-top: 96px; }
+
+/* optional: nice vertical rhythm for stacked headings & paragraphs */
+.flow > * + * { margin-top: 1rem; }
+
+}
+
 /* if items contain <a> */
 .about-list li a:hover,
 .about-list li a:focus-visible{
