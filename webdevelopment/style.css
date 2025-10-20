@@ -257,3 +257,42 @@ h1{
 /* keep paragraphs to a readable line length */
 .measure { max-width: 65ch; margin-inline: auto; }
 }
+
+
+/* ===== Reflection page styles ===== */
+
+/* Box Model wrapper (padding, margin, border, background, radius) */
+.reflection-box{
+  /* BOX MODEL */
+  margin: 1.25rem 0 2rem;
+  padding: 24px 28px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  background: rgba(255,255,255,.03);
+  box-shadow: 0 8px 30px rgba(0,0,0,.15); /* optional depth */
+
+  /* keep text lines comfortable inside the box too */
+  max-width: 75ch;
+}
+
+/* Use the existing measure class to control line-length and alignment if desired */
+/* .measure { max-width: 65ch; }  (already defined earlier if you added it) */
+
+/* First letter of the FIRST paragraph */
+.reflection p:first-of-type::first-letter{
+  font-family: 'Montserrat', 'Lato', sans-serif;
+  font-weight: 800;
+  font-size: 3.25rem;
+  line-height: 0.8;
+  color: var(--brand);
+  margin-right: .25rem;
+}
+
+/* Indent the first line of EVERY OTHER paragraph (2nd, 4th, ...) */
+.reflection p:nth-of-type(even){
+  text-indent: 2em;  /* indents first line only */
+}
+
+/* Tidy paragraph spacing inside the reflection area */
+.reflection > p + p{ margin-top: 1rem; }
+}
