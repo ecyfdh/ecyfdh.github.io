@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reflection – Elizabeth Yenzer</title>
+
+  <!-- Site-wide styles + Nav styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="nav.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="reflection.html" aria-current="page">Reflection</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container page">
+    <header>
+      <span class="eyebrow">Course Reflection</span>
+      <h1>Animating Stories: What I’ve Learned</h1>
+      <h2>Process, Practice, and Professional Goals</h2>
+    </header>
+
+    <!-- Box Model wrapper for all reflection paragraphs -->
+    <section class="reflection-box reflection measure">
+      <p>Animation, for me, is the craft of sculpting time—shaping motion until it carries meaning. This semester pushed me to think beyond polish and focus on clarity: readable silhouettes, motivated arcs, and poses that communicate before a single frame plays. I learned to plan with thumbnails, block quickly, and only then add the nuance that makes moments feel alive.</p>
+
+      <p>I’ve become more intentional with references. Instead of copying movement, I break it into beats—anticipation, action, overshoot—and test each beat in blocking. That mindset also made graph editor work less scary: spacing became a design choice, not a fight with tangents. The result is cleaner timing and a stronger sense of weight.</p>
+
+      <p>Technically, I practiced rig hygiene and small tools that save hours later: naming conventions, non-destructive constraints, and viewport lighting for quick reads. I also built a habit of daily micro-studies—ten-to-twenty second cycles that target a single idea like follow-through or eye darts. They’re fast, but they compound.</p>
+
+      <p>Professionally, my goal is story-driven 3D character work. Short term, I’m focusing on a tight reel: three short shots that each demonstrate a different strength—subtle acting, physicality, and multi-character interaction. Long term, I want to collaborate on projects where performance and design are inseparable, and where the animation serves the narrative above everything else.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Elizabeth Yenzer</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
