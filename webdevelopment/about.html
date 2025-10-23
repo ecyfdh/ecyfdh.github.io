@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Page-local layout: text left, video right; left-aligned measure -->
+  <!-- Page-local layout: text left, media right; left-aligned measure -->
   <style>
     /* keep readable width and left align inside the grid */
     .measure{
@@ -34,12 +34,13 @@
     }
     @media (min-width: 880px){
       .about-grid{
-        grid-template-columns: 1.1fr 0.9fr; /* text a bit wider than video */
+        grid-template-columns: 1.1fr 0.9fr; /* text a bit wider than media column */
       }
     }
 
-    /* make the video responsive inside its column */
-    .about-video{
+    /* media styles (video + project image) */
+    .about-video,
+    .project-img{
       width: 100%;
       height: auto;
       display: block;
@@ -47,6 +48,7 @@
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.03);
     }
+    .project-img{ margin-top: 1rem; } /* image sits under the video */
   </style>
 </head>
 <body>
@@ -87,14 +89,22 @@
         </p>
       </section>
 
-      <!-- Right column: video -->
+      <!-- Right column: video + recent project image -->
       <aside>
         <h2 class="text-center">Portfolio Reel</h2>
-        <video class="about-video" controls preload="metadata" poster="thumb.jpg">
+        <video class="about-video" controls preload="metadata">
           <!-- about.html is in /webdevelopment/, video is in /webcontent/ -->
           <source src="../webcontent/portfoliovideo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+
+        <h3 class="text-center" style="margin-top:1rem;">Recent Project</h3>
+        <img
+          class="project-img"
+          src="../webcontent/rat.png"
+          alt="A 3D modeled render of a mechanical, steam-punk inspired toy mouse with glowing eyes."
+          loading="lazy"
+        />
       </aside>
     </div>
   </main>
