@@ -14,18 +14,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Page-local tweak: keep readable width but shift left on desktop -->
+  <!-- Page-local layout: text left, video right; left-aligned measure -->
   <style>
+    /* keep readable width and left align inside the grid */
     .measure{
       max-width: 65ch;
-      margin-left: 0;        /* hug left edge of the container */
-      margin-right: auto;    /* push remaining space to the right */
+      margin-left: 0;
+      margin-right: auto;
     }
     @media (max-width: 520px){
-      .measure{
-        margin-left: auto;   /* recenter on small screens */
-        margin-right: auto;
+      .measure{ margin-left: auto; margin-right: auto; }
+    }
+
+    /* two-column layout for about page */
+    .about-grid{
+      display: grid;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (min-width: 880px){
+      .about-grid{
+        grid-template-columns: 1.1fr 0.9fr; /* text a bit wider than video */
       }
+    }
+
+    /* make the video responsive inside its column */
+    .about-video{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
     }
   </style>
 </head>
@@ -34,6 +54,7 @@
 
   <header class="site-header">
     <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
+
     <nav class="site-nav" aria-label="Primary">
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
@@ -46,27 +67,31 @@
   </header>
 
   <main id="main" class="container page">
-    <div class="measure">
-      <h1>Welcome to My Website</h1>
-      <p>Hello! My name is Elizabeth Yenzer, and I’m an animator with a passion for 3D design and storytelling. This page is where visitors can learn more about me.</p>
+    <div class="about-grid">
+      <!-- Left column: text -->
+      <section class="measure">
+        <h1>Welcome to My Website</h1>
+        <p>Hello! My name is Elizabeth Yenzer, and I’m an animator with a passion for 3D design and storytelling. This page is where visitors can learn more about me.</p>
 
-      <h2>Things I’m working with lately</h2>
-      <ul class="about-list">
-        <li>3D animation in Blender (rigging, physics, lighting)</li>
-        <li>Story-driven visuals and character moments</li>
-        <li>Building a clean, accessible portfolio site</li>
-        <li>Iterating fast with style guides and components</li>
-      </ul>
+        <h2>Things I’m working with lately</h2>
+        <ul class="about-list">
+          <li>3D animation in Blender (rigging, physics, lighting)</li>
+          <li>Story-driven visuals and character moments</li>
+          <li>Building a clean, accessible portfolio site</li>
+          <li>Iterating fast with style guides and components</li>
+        </ul>
 
-      <h2>Resume</h2>
-      <p class="prose">
-        <a class="resume-link" href="Resume.pdf" target="_blank" rel="noopener">Download My Resume (PDF)</a>
-      </p>
+        <h2>Resume</h2>
+        <p class="prose">
+          <a class="resume-link" href="Resume.pdf" target="_blank" rel="noopener">Download My Resume (PDF)</a>
+        </p>
+      </section>
 
-     <aside>
+      <!-- Right column: video -->
+      <aside>
         <h2 class="text-center">Portfolio Reel</h2>
         <video class="about-video" controls preload="metadata" poster="thumb.jpg">
-    
+          <!-- about.html is in /webdevelopment/, video is in /webcontent/ -->
           <source src="../webcontent/portfoliovideo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
