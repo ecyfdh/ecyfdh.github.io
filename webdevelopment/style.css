@@ -435,3 +435,13 @@ h1{
   body.about ol,
   body.about footer { page-break-inside: avoid; }
 }
+
+/* Hide print-only things on screen */
+.print-only { display: none !important; }
+
+/* Print: reveal the list (and make sure items render as list items) */
+@media print {
+  .print-only { display: block !important; }
+  .print-only li { display: list-item !important; }
+}
+
