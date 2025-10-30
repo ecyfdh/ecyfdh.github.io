@@ -343,3 +343,95 @@ h1{
   .site-footer{ flex-direction: column; align-items: flex-start; }
   .contact{ gap: .5rem 1rem; }
 }
+
+/* ===== Print layout — ABOUT page only ===== */
+@media print {
+
+  /* 1" margins on all sides */
+  @page { margin: 1in; }
+
+  /* Global print tone for the About page */
+  body.about {
+    font-family: Georgia, "Times New Roman", Times, serif !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+  body.about * {
+    color: #000 !important;
+    background: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide everything by default, then allow what we need */
+  body.about > * { display: none !important; }          /* hide header, etc. */
+  body.about main,
+  body.about footer { display: block !important; }       /* we’ll use these */
+
+  /* Inside main: hide all, then reveal allowed content path */
+  body.about main * { display: none !important; }
+
+  /* Reveal the text column that holds content */
+  body.about main .container,
+  body.about main .about-grid,
+  body.about main section,
+  body.about main .measure { display: block !important; }
+
+  /* Show ONLY the required items */
+  body.about main h1 {
+    display: block !important;
+    font-size: 24pt;
+    line-height: 1.15;
+    margin: 0 0 10pt;
+  }
+
+  /* Personal description: use the FIRST paragraph on the page */
+  body.about main p:first-of-type {
+    display: block !important;
+    font-size: 12pt;
+    margin: 0 0 10pt;
+  }
+
+  /* Education list (mark it with class="education") */
+  body.about main ul.education,
+  body.about main ol.education {
+    display: block !important;
+    font-size: 12pt;
+    margin: 0;
+    padding-left: 18pt;
+  }
+  body.about main ul.education li,
+  body.about main ol.education li {
+    display: list-item !important;
+    margin: 0 0 6pt;
+  }
+
+  /* Kill the media column entirely (video, images) */
+  body.about .about-grid aside { display: none !important; }
+
+  /* Footer: show contact text only, no logos/icons/copyright */
+  body.about footer.site-footer {
+    display: block !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-top: 12pt;
+  }
+  body.about footer .contact { display: block !important; }
+  body.about footer small,
+  body.about footer img,
+  body.about footer .icon { display: none !important; }
+  body.about footer .contact .contact-item {
+    display: block !important;
+    text-decoration: none !important;
+    margin: 0 0 6pt;
+  }
+
+  /* Avoid awkward page breaks */
+  body.about h1,
+  body.about p,
+  body.about ul,
+  body.about ol,
+  body.about footer { page-break-inside: avoid; }
+}
