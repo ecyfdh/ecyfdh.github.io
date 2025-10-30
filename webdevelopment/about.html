@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About – Elizabeth Yenzer</title>
 
+  <!-- Favicon (in same folder as this file) -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <!-- Site-wide styles and nav styles (same folder) -->
+
+  <!-- Site-wide styles and nav styles -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="nav.css" />
 
@@ -52,12 +54,11 @@
     .project-img{ margin-top: 1rem; } /* image sits under the video */
   </style>
 </head>
-
-
+<body class="about">
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
-
     <nav class="site-nav" aria-label="Primary">
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
@@ -76,6 +77,13 @@
         <h1>Welcome to My Website</h1>
         <p>Hello! My name is Elizabeth Yenzer, and I’m an animator with a passion for 3D design and storytelling. This page is where visitors can learn more about me.</p>
 
+        <!-- Print-only Education list (hidden on screen, prints per your @media print rules) -->
+        <ul class="education print-only">
+          <li>B.A. in Digital Storytelling, University of Missouri (Expected 2026)</li>
+          <li>Certificate in Animation & Visual Effects</li>
+          <li>Relevant courses: 3D Animation, Illustration, Web Dev</li>
+        </ul>
+
         <h2>Things I’m working with lately</h2>
         <ul class="about-list">
           <li>3D animation in Blender (rigging, physics, lighting)</li>
@@ -83,11 +91,7 @@
           <li>Building a clean, accessible portfolio site</li>
           <li>Iterating fast with style guides and components</li>
         </ul>
-<ul class="education print-only">
-          <li>B.A. in Digital Storytelling, University of Missouri (Expected 2026)</li>
-          <li>Certificate in Animation & Visual Effects</li>
-          <li>Relevant courses: 3D Animation, Illustration, Web Dev</li>
-        </ul>
+
         <h2>Resume</h2>
         <p class="prose">
           <a class="resume-link" href="Resume.pdf" target="_blank" rel="noopener">Download My Resume (PDF)</a>
@@ -114,20 +118,20 @@
     </div>
   </main>
 
-     <footer class="site-footer container">
-  <small>© <span id="year"></span> Elizabeth Yenzer</small>
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Elizabeth Yenzer</small>
 
-  <address class="contact">
-    <a class="contact-item" href="tel:5551234567">
-      <img class="icon" src="phone.png" alt="" aria-hidden="true">
-      <span>(555) 123-4567</span>
-    </a>
+    <address class="contact">
+      <a class="contact-item" href="tel:5551234567">
+        <img class="icon" src="phone.png" alt="" aria-hidden="true">
+        <span>(555) 123-4567</span>
+      </a>
 
-    <a class="contact-item" href="mailto:hello@example.com">
-      <img class="icon" src="email.png" alt="" aria-hidden="true">
-      <span>hello@example.com</span>
-    </a>
-  </address>
+      <a class="contact-item" href="mailto:hello@example.com">
+        <img class="icon" src="email.png" alt="" aria-hidden="true">
+        <span>hello@example.com</span>
+      </a>
+    </address>
   </footer>
 
   <script>
