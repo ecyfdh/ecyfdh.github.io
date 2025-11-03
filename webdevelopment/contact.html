@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – Elizabeth Yenzer</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="nav.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container page">
+    <span class="eyebrow">Say hello</span>
+    <h1>Contact</h1>
+    <p class="lead">Have a project, a question, or just want to talk animation? Fill this out and I’ll get back to you.</p>
+
+    <div class="form-wrap">
+      <form class="form" action="#" method="post" novalidate>
+        <!-- Title dropdown -->
+        <div class="form-row">
+          <label for="title">Title</label>
+          <select id="title" name="title" class="select" required>
+            <option value="" disabled selected>Select your title</option>
+            <option>Ms.</option>
+            <option>Mr.</option>
+            <option>Mx.</option>
+            <option>Dr.</option>
+            <option>Prof.</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <!-- Full name -->
+        <div class="form-row">
+          <label for="fullname">Full Name</label>
+          <input id="fullname" name="fullname" class="input" type="text" placeholder="Enter your full name" required />
+        </div>
+
+        <!-- Email -->
+        <div class="form-row">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" class="input" type="email" placeholder="you@example.com" required />
+          <p class="helper">I’ll only use this to reply to your message.</p>
+        </div>
+
+        <!-- Select button (your choice of content) -->
+        <div class="form-row">
+          <label for="topic">Inquiry Type</label>
+          <select id="topic" name="topic" class="select" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Portfolio feedback</option>
+            <option>Project collaboration</option>
+            <option>Commission inquiry</option>
+            <option>Speaking / workshop</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" class="textarea" placeholder="Tell me a bit about your project or question…" required></textarea>
+        </div>
+
+        <!-- Actions -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary">Submit</button>
+          <button type="reset" class="btn btn--ghost">Reset</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Elizabeth Yenzer</small>
+    <address class="contact">
+      <a class="contact-item" href="tel:5551234567">
+        <img class="icon" src="phone.png" alt="" aria-hidden="true" />
+        <span>(555) 123-4567</span>
+      </a>
+      <a class="contact-item" href="mailto:hello@example.com">
+        <img class="icon" src="email.png" alt="" aria-hidden="true" />
+        <span>hello@example.com</span>
+      </a>
+    </address>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
