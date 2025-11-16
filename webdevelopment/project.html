@@ -44,13 +44,37 @@
   <span class="eyebrow">Projects</span>
   <h1>Selected Work</h1>
 
-<section class="projects-mobile">
-  <!-- default anchor so first slide shows without a hash -->
-  <div id="slide1"></div>
+<section class="projects-mobile" aria-label="Projects (mobile)">
+  <!-- GRID (default view) -->
+  <div class="m-grid" id="all">
+    <a class="m-card" href="#m-fountain">
+      <figure>
+        <video muted playsinline preload="metadata">
+          <source src="../webcontent/fountainofdream.mp4" type="video/mp4">
+        </video>
+        <figcaption>Fountain of Dream</figcaption>
+      </figure>
+    </a>
 
-  <!-- Slide 1: video -->
+    <a class="m-card" href="#m-labels">
+      <figure>
+        <img src="../webcontent/winelables.png" alt="Wine label concepts." loading="lazy">
+        <figcaption>Wine Labels</figcaption>
+      </figure>
+    </a>
+
+    <a class="m-card" href="#m-mouse">
+      <figure>
+        <img src="../webcontent/rat.png" alt="Toy mouse render." loading="lazy">
+        <figcaption>Toy Mouse</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <!-- SLIDES (detail view) -->
   <article class="m-slide" id="m-fountain">
     <a class="hero-arrow left"  href="#m-mouse"  aria-label="Previous">‹</a>
+    <a class="back-link" href="#all">← All projects</a>
     <figure class="frame">
       <video class="artifact-media" controls preload="metadata" playsinline>
         <source src="../webcontent/fountainofdream.mp4" type="video/mp4">
@@ -63,13 +87,11 @@
     <a class="hero-arrow right" href="#m-labels" aria-label="Next">›</a>
   </article>
 
-  <!-- Slide 2: wine labels -->
   <article class="m-slide" id="m-labels">
     <a class="hero-arrow left"  href="#m-fountain" aria-label="Previous">‹</a>
+    <a class="back-link" href="#all">← All projects</a>
     <figure class="frame">
-      <img class="artifact-media"
-           src="../webcontent/winelables.png"
-           alt="Silhouette wine label concepts." loading="lazy">
+      <img class="artifact-media" src="../webcontent/winelables.png" alt="Wine label concepts." loading="lazy">
       <figcaption>Wine label set — silhouettes-only exploration</figcaption>
     </figure>
     <div class="hero-actions">
@@ -78,13 +100,11 @@
     <a class="hero-arrow right" href="#m-mouse" aria-label="Next">›</a>
   </article>
 
-  <!-- Slide 3: toy mouse -->
   <article class="m-slide" id="m-mouse">
     <a class="hero-arrow left"  href="#m-labels"  aria-label="Previous">‹</a>
+    <a class="back-link" href="#all">← All projects</a>
     <figure class="frame">
-      <img class="artifact-media"
-           src="../webcontent/rat.png"
-           alt="Mechanical toy mouse render with glowing eyes." loading="lazy">
+      <img class="artifact-media" src="../webcontent/rat.png" alt="Mechanical toy mouse render with glowing eyes." loading="lazy">
       <figcaption>Toy mouse render — emissive eyes, hard-surface study</figcaption>
     </figure>
     <div class="hero-actions">
@@ -93,6 +113,7 @@
     <a class="hero-arrow right" href="#m-fountain" aria-label="Next">›</a>
   </article>
 </section>
+
 
 
   <!-- ===== DESKTOP GRID (shown on wider screens) ===== -->
