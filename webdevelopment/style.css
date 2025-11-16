@@ -683,3 +683,15 @@ h1{
   padding: .25rem .9rem 1rem;
 }
 
+/* MOBILE slider via :target (no JS) */
+.projects-mobile { display:block; position:relative; margin:1rem 0 2rem; }
+.m-slide { display:none; }
+.projects-mobile .m-slide:first-of-type { display:block; }      /* default */
+.m-slide:target { display:block; }                              /* show target */
+.projects-mobile:has(#m-labels:target) .m-slide:not(#m-labels){ display:none; }
+.projects-mobile:has(#m-mouse:target)  .m-slide:not(#m-mouse) { display:none; }
+.projects-mobile:has(#m-fountain:target) .m-slide:not(#m-fountain){ display:none; }
+
+/* keep your existing arrow/frame styles */
+
+
