@@ -663,30 +663,52 @@ h1{
 .project-card{ position: relative; }           /* anchor for absolute child */
 .card-media{ position: relative; overflow:hidden; }
 
+.project-card{ position: relative; }
+.card-media{ position: relative; overflow:hidden; }
+
+/* Overlay caption with dark fade behind it */
 .card-desc{
   position: absolute;
   left: 0; right: 0;
-  bottom: 56px;                /* sits just above the footer row; tweak if needed */
-  padding: .65rem .9rem;
+  bottom: 56px;                 /* sits above the footer row */
+  padding: .75rem 1rem;
   color: #fff;
-  background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0));
+  z-index: 2;                   /* above the scrim */
   opacity: 0;
   transform: translateY(6px);
   transition: opacity .22s ease, transform .22s ease;
-  pointer-events: none;        /* don’t block the “View” button */
+  pointer-events: none;
 }
 
-/* reveal on hover or keyboard focus */
+/* the dark fade */
+.card-desc::before{
+  content: "";
+  position: absolute; inset: -12px -12px -12px -12px; /* extend past padding */
+  z-index: -1;
+  /* stronger gradient + a touch more height */
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.78) 0%,
+    rgba(0,0,0,0.62) 35%,
+    rgba(0,0,0,0.0) 100%
+  );
+  border-radius: 8px;
+}
+
+/* show on hover/focus */
 .project-card:hover .card-desc,
 .project-card:focus-within .card-desc{
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Respect users who prefer less motion */
+/* optional extra pop for the text */
+.card-desc > *{ text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+
 @media (prefers-reduced-motion: reduce){
   .card-desc{ transition: opacity .01ms linear; transform:none; }
 }
+
 
 /* Small screen tweaks */
 @media (max-width:600px){
