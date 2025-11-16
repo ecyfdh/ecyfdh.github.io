@@ -58,21 +58,7 @@
     <section class="projects-mobile" aria-label="Projects (mobile)">
 
       <!-- Slide 1 -->
-      <article class="m-slide" id="m-fountain">
-        <a class="hero-arrow left"  href="#m-mouse"  aria-label="Previous">‹</a>
-        <a class="back-link" href="#all">← All projects</a>
-        <figure class="frame">
-          <video class="artifact-media" controls preload="metadata" playsinline>
-            <source src="../webcontent/fountainofdreams.mp4" type="video/mp4">
-          </video>
-          <figcaption>Fountain of Dream — animation test (Blender)</figcaption>
-        </figure>
-        <div class="hero-actions">
-          <a class="btn btn--primary" href="#fountain">View</a>
-        </div>
-        <a class="hero-arrow right" href="#m-labels" aria-label="Next">›</a>
-      </article>
-
+    
       <!-- Slide 2 -->
       <article class="m-slide" id="m-labels">
         <a class="hero-arrow left"  href="#m-fountain" aria-label="Previous">‹</a>
@@ -103,7 +89,14 @@
 
       <!-- GRID (default mobile view) -->
       <div class="m-grid" id="all">
-      
+        <a class="m-card" href="#m-fountain">
+          <figure>
+            <video muted playsinline preload="metadata">
+              <source src="../webcontent/fountainofdreams.mp4" type="video/mp4">
+            </video>
+            <figcaption>Fountain of Dream</figcaption>
+          </figure>
+        </a>
 
         <a class="m-card" href="#m-labels">
           <figure>
