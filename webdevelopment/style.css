@@ -593,3 +593,93 @@ h1{
   .hero-arrow{ width:32px; height:32px; }
   .chip{ font-size:.95rem; }
 }
+
+/* =========================
+   Projects: mobile vs desktop
+   ========================= */
+
+/* Shared bits */
+.frame{
+  margin:0; padding:12px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px; background:rgba(255,255,255,.03);
+}
+.artifact-media{ width:100%; height:auto; display:block; border-radius:12px; }
+
+/* MOBILE FEATURE (matches your phone sketch) */
+.projects-mobile{ display:block; margin:1rem 0 2rem; }
+.project-hero{ position:relative; }
+.hero-actions{ display:flex; justify-content:center; margin-top:.6rem; }
+
+.hero-arrow{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:36px; height:36px; border-radius:999px;
+  display:grid; place-items:center; text-decoration:none; color:#fff;
+  background:rgba(0,0,0,.4); border:1px solid rgba(255,255,255,.25);
+}
+.hero-arrow.left{ left:8px; }
+.hero-arrow.right{ right:8px; }
+.hero-arrow:hover{ background:rgba(0,0,0,.6); }
+
+/* DESKTOP GRID (three cards with hover description) */
+.projects-desktop{ display:none; }
+.cards{
+  display:grid; gap:1.25rem; align-items:start;
+}
+@media (min-width: 880px){
+  .projects-mobile{ display:none; }    /* hide phone layout */
+  .projects-desktop{ display:block; }
+
+  .cards{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Card */
+.project-card{
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px; background:rgba(255,255,255,.03);
+  overflow:hidden; display:flex; flex-direction:column;
+}
+
+/* Media area keeps a steady ratio and fits content */
+.card-media{
+  position:relative; margin:0; aspect-ratio: 4 / 5;  /* tidy portrait tile */
+  overflow:hidden;
+}
+.media-fit{
+  width:100%; height:100%; object-fit:cover; display:block;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+/* Footer row with title + button */
+.card-footer{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:.75rem; padding:.8rem .9rem;
+}
+.card-footer h3{ margin:0; font-size:1.05rem; color:var(--fg); }
+
+/* Hover description (slides down on desktop) */
+.card-desc{
+  max-height:0;
+  overflow:hidden;
+  padding:0 .9rem;
+  color: var(--muted);
+  transition: max-height .25s ease, padding .2s ease;
+}
+.project-card:hover .card-desc{
+  max-height: 120px;        /* enough for 2–3 lines */
+  padding: .25rem .9rem 1rem;
+}
+
+/* Small screen tweaks */
+@media (max-width:600px){
+  .hero-arrow{ width:32px; height:32px; }
+}
+
+/* Accessibility helper if you tab onto the card */
+.project-card:focus-within .card-desc{
+  max-height: 120px;
+  padding: .25rem .9rem 1rem;
+}
+
