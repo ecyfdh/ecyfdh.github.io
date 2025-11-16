@@ -8,25 +8,30 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="nav.css" />
 
-  <!-- Fonts (same as other pages) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Mobile viewer fix: show only the targeted slide; hide grid while a slide is open -->
+  <style>
+    /* only affects the mobile section structure in this file */
+    .projects-mobile .m-slide{ display:none; }
+    .projects-mobile .m-slide:target{ display:block; }
+    .projects-mobile .m-slide:target ~ .m-grid{ display:none; }
+  </style>
 </head>
 <body>
-
   <header class="site-header">
     <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
 
-    <!-- checkbox + label for mobile hamburger (already supported by your nav.css) -->
     <input type="checkbox" id="nav-check" class="nav-check" />
     <label for="nav-check" class="nav-toggle" aria-label="Toggle menu">☰</label>
 
     <nav class="site-nav" aria-label="Primary">
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-          <!-- Projects with a tiny dropdown containing ANCHOR LINKS -->
+
         <li class="has-sub">
           <a href="project.html" aria-current="page">Projects</a>
           <ul class="subnav">
@@ -34,6 +39,8 @@
             <li><a href="#labels">Wine Labels (image)</a></li>
           </ul>
         </li>
+
+        <li><a href="about.html">About</a></li>
         <li><a href="reflection.html">Reflection</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -41,135 +48,143 @@
   </header>
 
   <main id="main" class="container page">
-  <span class="eyebrow">Projects</span>
-  <h1>Selected Work</h1>
+    <span class="eyebrow">Projects</span>
+    <h1>Selected Work</h1>
 
-<section class="projects-mobile" aria-label="Projects (mobile)">
-  <!-- GRID (default view) -->
-  <div class="m-grid" id="all">
-    <a class="m-card" href="#m-fountain">
-      <figure>
-        <video muted playsinline preload="metadata">
-          <source src="../webcontent/fountainofdreams.mp4" type="video/mp4">
-        </video>
-        <figcaption>Fountain of Dream</figcaption>
-      </figure>
-    </a>
+    <!-- =========================
+         MOBILE: slides FIRST, grid SECOND
+         (the tiny CSS in <head> hides grid when a slide is targeted)
+         ========================= -->
+    <section class="projects-mobile" aria-label="Projects (mobile)">
 
-    <a class="m-card" href="#m-labels">
-      <figure>
-        <img src="../webcontent/winelables.png" alt="Wine label concepts." loading="lazy">
-        <figcaption>Wine Labels</figcaption>
-      </figure>
-    </a>
-
-    <a class="m-card" href="#m-mouse">
-      <figure>
-        <img src="../webcontent/rat.png" alt="Toy mouse render." loading="lazy">
-        <figcaption>Toy Mouse</figcaption>
-      </figure>
-    </a>
-  </div>
-
-  <!-- SLIDES (detail view) -->
-  <article class="m-slide" id="m-fountain">
-    <a class="hero-arrow left"  href="#m-mouse"  aria-label="Previous">‹</a>
-    <a class="back-link" href="#all">← All projects</a>
-    <figure class="frame">
-      <video class="artifact-media" controls preload="metadata" playsinline>
-        <source src="../webcontent/fountainofdreams.mp4" type="video/mp4">
-      </video>
-      <figcaption>Fountain of Dream — animation test (Blender)</figcaption>
-    </figure>
-    <div class="hero-actions">
-      <a class="btn btn--primary" href="#fountain">View</a>
-    </div>
-    <a class="hero-arrow right" href="#m-labels" aria-label="Next">›</a>
-  </article>
-
-  <article class="m-slide" id="m-labels">
-    <a class="hero-arrow left"  href="#m-fountain" aria-label="Previous">‹</a>
-    <a class="back-link" href="#all">← All projects</a>
-    <figure class="frame">
-      <img class="artifact-media" src="../webcontent/winelables.png" alt="Wine label concepts." loading="lazy">
-      <figcaption>Wine label set — silhouettes-only exploration</figcaption>
-    </figure>
-    <div class="hero-actions">
-      <a class="btn btn--primary" href="#labels">View</a>
-    </div>
-    <a class="hero-arrow right" href="#m-mouse" aria-label="Next">›</a>
-  </article>
-
-  <article class="m-slide" id="m-mouse">
-    <a class="hero-arrow left"  href="#m-labels"  aria-label="Previous">‹</a>
-    <a class="back-link" href="#all">← All projects</a>
-    <figure class="frame">
-      <img class="artifact-media" src="../webcontent/rat.png" alt="Mechanical toy mouse render with glowing eyes." loading="lazy">
-      <figcaption>Toy mouse render — emissive eyes, hard-surface study</figcaption>
-    </figure>
-    <div class="hero-actions">
-      <a class="btn btn--primary" href="#toy-mouse">View</a>
-    </div>
-    <a class="hero-arrow right" href="#m-fountain" aria-label="Next">›</a>
-  </article>
-</section>
-
-
-
-  <!-- ===== DESKTOP GRID (shown on wider screens) ===== -->
-  <section class="projects-desktop">
-    <div class="cards">
-      <!-- Card 1: video -->
-      <article class="project-card" id="fountain">
-        <figure class="card-media">
-          <video class="media-fit" controls preload="metadata">
-            <source src="../webcontent/fountainofdreams.mp4" type="video/mp4" />
+      <!-- Slide 1 -->
+      <article class="m-slide" id="m-fountain">
+        <a class="hero-arrow left"  href="#m-mouse"  aria-label="Previous">‹</a>
+        <a class="back-link" href="#all">← All projects</a>
+        <figure class="frame">
+          <video class="artifact-media" controls preload="metadata" playsinline>
+            <!-- If your actual file is fountainofdreams.mp4, add the s here -->
+            <source src="../webcontent/fountainofdream.mp4" type="video/mp4">
           </video>
+          <figcaption>Fountain of Dream — animation test (Blender)</figcaption>
         </figure>
-        <div class="card-footer">
-          <h3>Fountain of Dream</h3>
+        <div class="hero-actions">
           <a class="btn btn--primary" href="#fountain">View</a>
         </div>
-        <div class="card-desc">
-          Soft neon palette, reflective surfaces, subtle camera drift. Emission shaders + compositor glow.
-        </div>
+        <a class="hero-arrow right" href="#m-labels" aria-label="Next">›</a>
       </article>
 
-      <!-- Card 2: image -->
-      <article class="project-card" id="labels">
-        <figure class="card-media">
-          <img class="media-fit"
-               src="../webcontent/winelables.png"
-               alt="Silhouette wine label concepts." loading="lazy" />
+      <!-- Slide 2 -->
+      <article class="m-slide" id="m-labels">
+        <a class="hero-arrow left"  href="#m-fountain" aria-label="Previous">‹</a>
+        <a class="back-link" href="#all">← All projects</a>
+        <figure class="frame">
+          <img class="artifact-media" src="../webcontent/winelables.png" alt="Wine label concepts." loading="lazy">
+          <figcaption>Wine label set — silhouettes-only exploration</figcaption>
         </figure>
-        <div class="card-footer">
-          <h3>Wine Labels</h3>
+        <div class="hero-actions">
           <a class="btn btn--primary" href="#labels">View</a>
         </div>
-        <div class="card-desc">
-          Silhouettes-only system. Overlaps, limited palette, quick shelf read for organic red wine.
-        </div>
+        <a class="hero-arrow right" href="#m-mouse" aria-label="Next">›</a>
       </article>
 
-      <!-- Card 3: optional extra (remove if you only want 2) -->
-      <article class="project-card" id="toy-mouse">
-        <figure class="card-media">
-          <img class="media-fit"
-               src="../webcontent/rat.png"
-               alt="Mechanical toy mouse render with glowing eyes." loading="lazy" />
+      <!-- Slide 3 -->
+      <article class="m-slide" id="m-mouse">
+        <a class="hero-arrow left"  href="#m-labels"  aria-label="Previous">‹</a>
+        <a class="back-link" href="#all">← All projects</a>
+        <figure class="frame">
+          <img class="artifact-media" src="../webcontent/rat.png" alt="Mechanical toy mouse render with glowing eyes." loading="lazy">
+          <figcaption>Toy mouse render — emissive eyes, hard-surface study</figcaption>
         </figure>
-        <div class="card-footer">
-          <h3>Toy Mouse Render</h3>
+        <div class="hero-actions">
           <a class="btn btn--primary" href="#toy-mouse">View</a>
         </div>
-        <div class="card-desc">
-          Steampunk toy study: hard-surface modeling + emissive accents and cozy rim light.
-        </div>
+        <a class="hero-arrow right" href="#m-fountain" aria-label="Next">›</a>
       </article>
-    </div>
-  </section>
-</main>
 
+      <!-- GRID (default mobile view) -->
+      <div class="m-grid" id="all">
+        <a class="m-card" href="#m-fountain">
+          <figure>
+            <video muted playsinline preload="metadata">
+              <!-- match filename here too -->
+              <source src="../webcontent/fountainofdream.mp4" type="video/mp4">
+            </video>
+            <figcaption>Fountain of Dream</figcaption>
+          </figure>
+        </a>
+
+        <a class="m-card" href="#m-labels">
+          <figure>
+            <img src="../webcontent/winelables.png" alt="Wine label concepts." loading="lazy">
+            <figcaption>Wine Labels</figcaption>
+          </figure>
+        </a>
+
+        <a class="m-card" href="#m-mouse">
+          <figure>
+            <img src="../webcontent/rat.png" alt="Toy mouse render." loading="lazy">
+            <figcaption>Toy Mouse</figcaption>
+          </figure>
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================
+         DESKTOP: 3-card grid
+         ========================= -->
+    <section class="projects-desktop">
+      <div class="cards">
+        <!-- Card 1: video -->
+        <article class="project-card" id="fountain">
+          <figure class="card-media">
+            <video class="media-fit" controls preload="metadata" playsinline>
+              <source src="../webcontent/fountainofdream.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <div class="card-footer">
+            <h3>Fountain of Dream</h3>
+            <a class="btn btn--primary" href="#fountain">View</a>
+          </div>
+          <div class="card-desc">
+            Soft neon palette, reflective surfaces, subtle camera drift. Emission shaders + compositor glow.
+          </div>
+        </article>
+
+        <!-- Card 2: image -->
+        <article class="project-card" id="labels">
+          <figure class="card-media">
+            <img class="media-fit"
+                 src="../webcontent/winelables.png"
+                 alt="Silhouette wine label concepts." loading="lazy" />
+          </figure>
+          <div class="card-footer">
+            <h3>Wine Labels</h3>
+            <a class="btn btn--primary" href="#labels">View</a>
+          </div>
+          <div class="card-desc">
+            Silhouettes-only system. Overlaps, limited palette, quick shelf read for organic red wine.
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="project-card" id="toy-mouse">
+          <figure class="card-media">
+            <img class="media-fit"
+                 src="../webcontent/rat.png"
+                 alt="Mechanical toy mouse render with glowing eyes." loading="lazy" />
+          </figure>
+          <div class="card-footer">
+            <h3>Toy Mouse Render</h3>
+            <a class="btn btn--primary" href="#toy-mouse">View</a>
+          </div>
+          <div class="card-desc">
+            Steampunk toy study: hard-surface modeling + emissive accents and cozy rim light.
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer container">
     <small>© <span id="year"></span> Elizabeth Yenzer</small>
