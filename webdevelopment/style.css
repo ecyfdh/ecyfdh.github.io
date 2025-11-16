@@ -694,4 +694,56 @@ h1{
 
 /* keep your existing arrow/frame styles */
 
+/* ===== Mobile projects: grid → detail viewer (no JS) ===== */
+.projects-mobile{ display:block; margin:1rem 0 2rem; }
+
+/* grid thumbnails */
+.m-grid{
+  display:grid; gap:.75rem;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+}
+.m-card{
+  display:block; text-decoration:none; color:inherit;
+}
+.m-card figure{ 
+  margin:0; border:1px solid rgba(255,255,255,.12);
+  border-radius:12px; overflow:hidden; background:rgba(255,255,255,.03);
+}
+.m-card video, .m-card img{ 
+  width:100%; height:auto; display:block; aspect-ratio: 4 / 5; object-fit: cover;
+}
+.m-card figcaption{
+  padding:.5rem .6rem; font-weight:700; font-size:.95rem;
+}
+
+/* detail slides (hidden by default) */
+.m-slide{ display:none; position:relative; }
+.back-link{
+  position:absolute; left:8px; top:-2rem; font-weight:700; text-decoration:none;
+}
+.hero-arrow{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:36px; height:36px; border-radius:999px;
+  display:grid; place-items:center;
+  background:rgba(0,0,0,.4);
+  border:1px solid rgba(255,255,255,.25);
+  text-decoration:none; color:#fff; font-weight:800; line-height:1;
+}
+.hero-arrow.left{  left:8px; }
+.hero-arrow.right{ right:8px; }
+.hero-arrow:hover{ background:rgba(0,0,0,.6); }
+
+/* show slide when targeted; hide grid while a slide is open */
+.m-slide:target{ display:block; }
+.projects-mobile:has(.m-slide:target) .m-grid{ display:none; }
+
+/* small tweaks */
+@media (max-width: 600px){
+  .hero-arrow{ width:32px; height:32px; }
+}
+
+/* desktop keeps your existing layout: hide the mobile section at ≥880px */
+@media (min-width: 880px){
+  .projects-mobile{ display:none; }
+}
 
