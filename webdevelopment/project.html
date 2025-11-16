@@ -45,24 +45,19 @@
 
     <!-- ========= MOBILE: viewer + grid (no arrows) ========= -->
     <section class="projects-mobile" aria-label="Projects (mobile)">
-      <!-- tiny invisible anchors that drive the viewer with :target -->
+      <!-- anchors that switch what shows in the viewer -->
       <a id="view-fountain" class="m-anchor" aria-hidden="true"></a>
       <a id="view-labels"   class="m-anchor" aria-hidden="true"></a>
       <a id="view-mouse"    class="m-anchor" aria-hidden="true"></a>
 
-      <!-- viewer box -->
+      <!-- viewer box (shows ONE item at a time) -->
       <div class="m-viewer">
         <div class="m-stage">
-          <!-- NOTE: you said the file is fountainofdreams.html.
-               We’ll show it in an iframe for mobile. If you ALSO have an MP4,
-               you can swap this <iframe> for a <video> tag. -->
+          <!-- default selection -->
           <div class="m-view v-fountain default">
-            <iframe
-              src="../webcontent/fountainofdreams.html"
-              title="Fountain of Dream – animation"
-              style="width:100%; height:100%; border:0;"
-              loading="lazy"
-            ></iframe>
+            <video controls preload="metadata" playsinline>
+              <source src="../webcontent/fountainofdreams.mp4" type="video/mp4">
+            </video>
           </div>
 
           <div class="m-view v-labels">
@@ -75,12 +70,14 @@
         </div>
       </div>
 
-      <!-- thumbnails grid -->
+      <!-- thumbnails -->
       <div class="m-grid">
         <a class="m-card" href="#view-fountain">
           <figure>
-            <img src="../webcontent/winelables.png" alt="" style="display:none" aria-hidden="true">
-            <!-- thumbnail for fountain: use a frame grab if you have it; using labels img as placeholder so layout stays nice -->
+            <!-- if you have a poster image, use <img src="poster.jpg"> here -->
+            <video muted playsinline preload="metadata">
+              <source src="../webcontent/fountainofdreams.mp4" type="video/mp4">
+            </video>
             <figcaption>Fountain of Dream</figcaption>
           </figure>
         </a>
@@ -104,27 +101,24 @@
     <!-- ========= DESKTOP: 3-card grid ========= -->
     <section class="projects-desktop">
       <div class="cards">
-        <!-- Card 1: Fountain (desktop still shows a playable embed if you later switch to MP4) -->
+        <!-- Card 1 -->
         <article class="project-card" id="fountain">
           <figure class="card-media">
-            <!-- If you do have an MP4, swap this iframe for a <video> tag. -->
-            <iframe
-              src="../webcontent/fountainofdreams.html"
-              title="Fountain of Dream – animation"
-              style="width:100%; height:100%; border:0;"
-              loading="lazy"
-            ></iframe>
+            <video class="media-fit" controls preload="metadata" playsinline>
+              <source src="../webcontent/fountainofdreams.mp4" type="video/mp4" />
+            </video>
           </figure>
           <div class="card-footer">
             <h3>Fountain of Dream</h3>
-            <a class="btn btn--primary" href="#view-fountain">View</a>
+            <!-- “View” now opens the full video in a new tab -->
+            <a class="btn btn--primary" href="../webcontent/fountainofdreams.mp4" target="_blank" rel="noopener">View</a>
           </div>
           <div class="card-desc">
             Soft neon palette, reflective surfaces, subtle camera drift. Emission shaders + compositor glow.
           </div>
         </article>
 
-        <!-- Card 2: Wine Labels -->
+        <!-- Card 2 -->
         <article class="project-card" id="labels">
           <figure class="card-media">
             <img class="media-fit"
@@ -133,14 +127,14 @@
           </figure>
           <div class="card-footer">
             <h3>Wine Labels</h3>
-            <a class="btn btn--primary" href="#view-labels">View</a>
+            <a class="btn btn--primary" href="../webcontent/winelables.png" target="_blank" rel="noopener">View</a>
           </div>
           <div class="card-desc">
             Silhouettes-only system. Overlaps, limited palette, quick shelf read for organic red wine.
           </div>
         </article>
 
-        <!-- Card 3: Toy Mouse -->
+        <!-- Card 3 -->
         <article class="project-card" id="toy-mouse">
           <figure class="card-media">
             <img class="media-fit"
@@ -149,7 +143,7 @@
           </figure>
           <div class="card-footer">
             <h3>Toy Mouse Render</h3>
-            <a class="btn btn--primary" href="#view-mouse">View</a>
+            <a class="btn btn--primary" href="../webcontent/rat.png" target="_blank" rel="noopener">View</a>
           </div>
           <div class="card-desc">
             Steampunk toy study: hard-surface modeling + emissive accents and cozy rim light.
