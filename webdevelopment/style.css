@@ -517,3 +517,79 @@ h1{
   background-repeat: no-repeat;
   padding-right: 2.5em;
 }
+
+/* =========================
+   Projects page layout
+   ========================= */
+
+/* tiny utility for screen-readers only */
+.visually-hidden{
+  position:absolute !important; width:1px; height:1px; margin:-1px; padding:0; border:0;
+  clip:rect(0 0 0 0); clip-path:inset(50%); overflow:hidden; white-space:nowrap;
+}
+
+/* anchor “chips” for quick jumps */
+.anchor-chips{ display:flex; gap:.5rem; margin:.5rem 0 1rem; flex-wrap:wrap; }
+.chip{
+  display:inline-block; padding:.4rem .7rem; border-radius:999px;
+  background:rgba(255,255,255,.08); text-decoration:none; font-weight:700;
+}
+.chip:hover{ background:rgba(255,255,255,.16); }
+
+/* hero section that matches your sketch (media above, desc below on mobile) */
+.project-hero{ display:grid; gap:1rem; margin:1rem 0 2rem; }
+.hero-media{
+  position:relative;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px; padding:12px;
+  background:rgba(255,255,255,.03);
+}
+.artifact-media{ width:100%; height:auto; display:block; border-radius:12px; }
+
+/* arrows */
+.hero-arrow{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:36px; height:36px; border-radius:999px;
+  display:grid; place-items:center;
+  background:rgba(0,0,0,.4);
+  border:1px solid rgba(255,255,255,.25);
+  text-decoration:none; color:#fff; font-weight:800; line-height:1;
+}
+.hero-arrow.left{  left:8px; }
+.hero-arrow.right{ right:8px; }
+.hero-arrow:hover{ background:rgba(0,0,0,.6); }
+
+/* view button under media */
+.hero-actions{ display:flex; justify-content:center; margin-top:.6rem; }
+.hero-desc h3{ margin:.25rem 0 .25rem; }
+
+/* reusable two-column for sections */
+.project.grid-two{
+  display:grid; gap:1.25rem; align-items:start;
+  margin:1.5rem 0 2.5rem;
+}
+.project .frame{
+  margin:0; padding:12px; border:1px solid rgba(255,255,255,.12);
+  border-radius:16px; background:rgba(255,255,255,.03);
+}
+.project .frame figcaption{
+  opacity:.8; font-size:.95rem; margin-top:.5rem;
+}
+
+/* desktop: two columns */
+@media (min-width: 880px){
+  .project-hero{
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: start;
+  }
+  .project.grid-two{
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+
+/* phones: tighten type/spacing a touch */
+@media (max-width: 600px){
+  .project-hero{ gap:.75rem; }
+  .hero-arrow{ width:32px; height:32px; }
+  .chip{ font-size:.95rem; }
+}
