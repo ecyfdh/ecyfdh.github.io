@@ -44,81 +44,80 @@
   </header>
 
   <main id="main" class="container page">
-    <span class="eyebrow">Projects</span>
-    <h1>Selected Work</h1>
+  <span class="eyebrow">Projects</span>
+  <h1>Selected Work</h1>
 
-    <!-- quick “anchor chips” for same-page jumps (nice on mobile) -->
-    <nav class="anchor-chips" aria-label="Project shortcuts">
-      <a class="chip" href="#fountain">Fountain of Dream</a>
-      <a class="chip" href="#labels">Wine Labels</a>
-    </nav>
-
-    <!-- =========================
-         HERO CARD (matches sketch)
-         ========================= -->
-    <section class="project-hero" aria-labelledby="hero-title">
-      <h2 id="hero-title" class="visually-hidden">Featured artifact</h2>
-
-      <div class="hero-media">
-        <!-- left/right “arrows” jump between sections -->
-        <a class="hero-arrow left" href="#labels" aria-label="Previous project">‹</a>
-
-        <!-- default feature is the video; keep poster-style frame -->
-        <video class="artifact-media" controls preload="metadata">
-          <source src="../webcontent/fountainofdream.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-
-        <a class="hero-arrow right" href="#labels" aria-label="Next project">›</a>
-
-        <div class="hero-actions">
-          <a class="btn btn--primary" href="#fountain">View</a>
-        </div>
-      </div>
-
-      <div class="hero-desc">
-        <h3>Fountain of Dream</h3>
-        <p class="lead">A short animated piece exploring dreamy lighting, particles, and mood. Built in Blender with a focus on timing and atmosphere.</p>
-      </div>
-    </section>
-
-    <!-- =========================
-         GRID OF PROJECT SECTIONS
-         ========================= -->
-    <section id="fountain" class="project grid-two">
+  <!-- ===== MOBILE FEATURED (shown only on small screens) ===== -->
+  <section class="projects-mobile">
+    <div class="project-hero">
+      <a class="hero-arrow left" href="#labels" aria-label="Previous">‹</a>
       <figure class="frame">
         <video class="artifact-media" controls preload="metadata">
           <source src="../webcontent/fountainofdream.mp4" type="video/mp4" />
         </video>
         <figcaption>Fountain of Dream — animation test (Blender)</figcaption>
       </figure>
-      <article class="copy">
-        <h2>Fountain of Dream</h2>
-        <p>Goals: soft neon palette, reflective surfaces, subtle camera drift. I experimented with emission shaders and compositing to get the glow right without crushing detail.</p>
-        <ul class="about-list">
-          <li>Blender (Eevee), simple particle system for sparkles</li>
-          <li>Color pass in compositor; tone mapping for bloom</li>
-          <li>Render optimized to keep file size friendly for web</li>
-        </ul>
-      </article>
-    </section>
+      <a class="hero-arrow right" href="#labels" aria-label="Next">›</a>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href="#fountain">View</a>
+      </div>
+    </div>
+  </section>
 
-    <section id="labels" class="project grid-two">
-      <figure class="frame">
-        <img class="artifact-media" src="../webcontent/winelables.png" alt="A set of flat-color silhouette wine label concepts for an organic red wine." loading="lazy" />
-        <figcaption>Wine label set — silhouettes-only exploration</figcaption>
-      </figure>
-      <article class="copy">
-        <h2>Wine Labels</h2>
-        <p>Flat silhouettes only, no textures—just color, overlap, and shape language. The goal was quick shelf read with a playful, organic feel.</p>
-        <ul class="about-list">
-          <li>Limited palette with multiply overlaps</li>
-          <li>Consistent card ratios for mockups</li>
-          <li>Exported for print and web previews</li>
-        </ul>
+  <!-- ===== DESKTOP GRID (shown on wider screens) ===== -->
+  <section class="projects-desktop">
+    <div class="cards">
+      <!-- Card 1: video -->
+      <article class="project-card" id="fountain">
+        <figure class="card-media">
+          <video class="media-fit" controls preload="metadata">
+            <source src="../webcontent/fountainofdream.mp4" type="video/mp4" />
+          </video>
+        </figure>
+        <div class="card-footer">
+          <h3>Fountain of Dream</h3>
+          <a class="btn btn--primary" href="#fountain">View</a>
+        </div>
+        <div class="card-desc">
+          Soft neon palette, reflective surfaces, subtle camera drift. Emission shaders + compositor glow.
+        </div>
       </article>
-    </section>
-  </main>
+
+      <!-- Card 2: image -->
+      <article class="project-card" id="labels">
+        <figure class="card-media">
+          <img class="media-fit"
+               src="../webcontent/winelables.png"
+               alt="Silhouette wine label concepts." loading="lazy" />
+        </figure>
+        <div class="card-footer">
+          <h3>Wine Labels</h3>
+          <a class="btn btn--primary" href="#labels">View</a>
+        </div>
+        <div class="card-desc">
+          Silhouettes-only system. Overlaps, limited palette, quick shelf read for organic red wine.
+        </div>
+      </article>
+
+      <!-- Card 3: optional extra (remove if you only want 2) -->
+      <article class="project-card" id="toy-mouse">
+        <figure class="card-media">
+          <img class="media-fit"
+               src="../webcontent/rat.png"
+               alt="Mechanical toy mouse render with glowing eyes." loading="lazy" />
+        </figure>
+        <div class="card-footer">
+          <h3>Toy Mouse Render</h3>
+          <a class="btn btn--primary" href="#toy-mouse">View</a>
+        </div>
+        <div class="card-desc">
+          Steampunk toy study: hard-surface modeling + emissive accents and cozy rim light.
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
 
   <footer class="site-footer container">
     <small>© <span id="year"></span> Elizabeth Yenzer</small>
