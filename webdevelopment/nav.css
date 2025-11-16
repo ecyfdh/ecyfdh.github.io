@@ -112,3 +112,32 @@
   /* Tighter header on phones */
   .site-header{ padding: 10px 16px; }
 }
+
+/* dropdown container */
+.has-sub{ position: relative; }
+.has-sub > .subnav{
+  display: none;
+  position: absolute; right: 0; top: calc(100% + 8px);
+  min-width: 220px; margin: 0; padding: 8px; list-style: none;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 12px;
+  background: rgba(8,10,16,.97);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.has-sub > .subnav a{ display:block; padding:10px 12px; border-radius:8px; text-decoration:none; }
+.has-sub > .subnav a:hover{ background:rgba(255,255,255,.08); }
+
+/* show on hover/focus (desktop) */
+@media (min-width: 521px){
+  .has-sub:hover > .subnav,
+  .has-sub:focus-within > .subnav{ display:block; }
+}
+
+/* inside hamburger (mobile), just show as an indented list */
+@media (max-width: 520px){
+  .has-sub > .subnav{
+    position: static; display: block; background: transparent;
+    border: 0; box-shadow: none; padding: 4px 0 0 12px;
+  }
+}
+
