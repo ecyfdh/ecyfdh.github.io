@@ -51,6 +51,56 @@
     <span class="eyebrow">Projects</span>
     <h1>Selected Work</h1>
 
+    <!-- =========================
+         MOBILE: slides FIRST, grid SECOND
+         (the tiny CSS in <head> hides grid when a slide is targeted)
+         ========================= -->
+    <section class="projects-mobile" aria-label="Projects (mobile)">
+
+      <!-- Slide 1 -->
+      <article class="m-slide" id="m-fountain">
+        <a class="hero-arrow left"  href="#m-mouse"  aria-label="Previous">‹</a>
+        <a class="back-link" href="#all">← All projects</a>
+        <figure class="frame">
+          <video class="artifact-media" controls preload="metadata" playsinline>
+            <source src="../webcontent/fountainofdreams.mp4" type="video/mp4">
+          </video>
+          <figcaption>Fountain of Dream — animation test (Blender)</figcaption>
+        </figure>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#fountain">View</a>
+        </div>
+        <a class="hero-arrow right" href="#m-labels" aria-label="Next">›</a>
+      </article>
+
+      <!-- Slide 2 -->
+      <article class="m-slide" id="m-labels">
+        <a class="hero-arrow left"  href="#m-fountain" aria-label="Previous">‹</a>
+        <a class="back-link" href="#all">← All projects</a>
+        <figure class="frame">
+          <img class="artifact-media" src="../webcontent/winelables.png" alt="Wine label concepts." loading="lazy">
+          <figcaption>Wine label set — silhouettes-only exploration</figcaption>
+        </figure>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#labels">View</a>
+        </div>
+        <a class="hero-arrow right" href="#m-mouse" aria-label="Next">›</a>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="m-slide" id="m-mouse">
+        <a class="hero-arrow left"  href="#m-labels"  aria-label="Previous">‹</a>
+        <a class="back-link" href="#all">← All projects</a>
+        <figure class="frame">
+          <img class="artifact-media" src="../webcontent/rat.png" alt="Mechanical toy mouse render with glowing eyes." loading="lazy">
+          <figcaption>Toy mouse render — emissive eyes, hard-surface study</figcaption>
+        </figure>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#toy-mouse">View</a>
+        </div>
+        <a class="hero-arrow right" href="#m-fountain" aria-label="Next">›</a>
+      </article>
+
       <!-- GRID (default mobile view) -->
       <div class="m-grid" id="all">
         <a class="m-card" href="#m-fountain">
