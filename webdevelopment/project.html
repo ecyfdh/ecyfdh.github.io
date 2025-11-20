@@ -12,27 +12,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tiny helper so the mobile “detail” slide hides the grid when open -->
+  <style>
+    .projects-mobile .m-slide{ display:none; }
+    .projects-mobile .m-slide:target{ display:block; }
+    .projects-mobile:has(.m-slide:target) .m-grid{ display:none; }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
 
+    <!-- mobile hamburger -->
     <input type="checkbox" id="nav-check" class="nav-check" />
     <label for="nav-check" class="nav-toggle" aria-label="Toggle menu">☰</label>
 
     <nav class="site-nav" aria-label="Primary">
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
 
+        <!-- Projects with anchor links to sections on this page -->
         <li class="has-sub">
           <a href="project.html" aria-current="page">Projects</a>
           <ul class="subnav">
-            <li><a href="#labels">Wine Labels</a></li>
-            <li><a href="#toy-mouse">Toy Mouse</a></li>
+            <li><a href="#fountain">Fountain of Dream (video)</a></li>
+            <li><a href="#labels">Wine Labels (image)</a></li>
+            <li><a href="#toy-mouse">Toy Mouse Render</a></li>
           </ul>
         </li>
 
-        <li><a href="about.html">About</a></li>
         <li><a href="reflection.html">Reflection</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -43,82 +53,104 @@
     <span class="eyebrow">Projects</span>
     <h1>Selected Work</h1>
 
-    <!-- ========= MOBILE: viewer + grid (no arrows) ========= -->
+    <!-- =========================
+         MOBILE: grid + detail slides
+         ========================= -->
     <section class="projects-mobile" aria-label="Projects (mobile)">
-      <!-- anchors that switch what shows in the viewer -->
-      <a id="view-fountain" class="m-anchor" aria-hidden="true"></a>
-      <a id="view-labels"   class="m-anchor" aria-hidden="true"></a>
-      <a id="view-mouse"    class="m-anchor" aria-hidden="true"></a>
 
-      <!-- viewer box (shows ONE item at a time) -->
-      <div class="m-viewer">
-        <div class="m-stage">
-          <!-- default selection -->
-          <div class="m-view v-fountain default">
-            <video controls preload="metadata" playsinline>
-              <source src="../webcontent/fountainofdreams.mp4" type="video/mp4">
-            </video>
-          </div>
-
-          <div class="m-view v-labels">
-            <img src="../webcontent/winelables.png" alt="Wine label concepts." loading="lazy">
-          </div>
-
-          <div class="m-view v-mouse">
-            <img src="../webcontent/rat.png" alt="Mechanical toy mouse render with glowing eyes." loading="lazy">
-          </div>
+      <!-- Detail slide: Fountain of Dream -->
+      <article class="m-slide" id="m-fountain">
+        <a class="back-link" href="#all">← All projects</a>
+        <figure class="frame">
+          <video class="artifact-media" controls preload="metadata" playsinline>
+            <source src="../webcontent/fountainofdreams.html" type="video/mp4" />
+          </video>
+          <figcaption>Fountain of Dream — animation test (Blender)</figcaption>
+        </figure>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#fountain">View</a>
         </div>
-      </div>
+      </article>
 
-      <!-- thumbnails -->
-      <div class="m-grid">
-        <a class="m-card" href="#view-fountain">
+      <!-- Detail slide: Wine labels -->
+      <article class="m-slide" id="m-labels">
+        <a class="back-link" href="#all">← All projects</a>
+        <figure class="frame">
+          <img class="artifact-media"
+               src="../webcontent/winelables.png"
+               alt="Wine label concepts." loading="lazy" />
+          <figcaption>Wine label set — silhouettes-only exploration</figcaption>
+        </figure>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#labels">View</a>
+        </div>
+      </article>
+
+      <!-- Detail slide: Toy mouse -->
+      <article class="m-slide" id="m-mouse">
+        <a class="back-link" href="#all">← All projects</a>
+        <figure class="frame">
+          <img class="artifact-media"
+               src="../webcontent/rat.png"
+               alt="Mechanical toy mouse render with glowing eyes." loading="lazy" />
+          <figcaption>Toy mouse render — emissive eyes, hard-surface study</figcaption>
+        </figure>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#toy-mouse">View</a>
+        </div>
+      </article>
+
+      <!-- Default view: thumbnail grid -->
+      <div class="m-grid" id="all">
+        <a class="m-card" href="#m-fountain">
           <figure>
-            <!-- if you have a poster image, use <img src="poster.jpg"> here -->
             <video muted playsinline preload="metadata">
-              <source src="../webcontent/fountainofdreams.mp4" type="video/mp4">
+              <source src="../webcontent/fountainofdreams.html" type="video/mp4" />
             </video>
             <figcaption>Fountain of Dream</figcaption>
           </figure>
         </a>
 
-        <a class="m-card" href="#view-labels">
+        <a class="m-card" href="#m-labels">
           <figure>
-            <img src="../webcontent/winelables.png" alt="Wine label concepts." loading="lazy">
+            <img src="../webcontent/winelables.png"
+                 alt="Wine label concepts." loading="lazy" />
             <figcaption>Wine Labels</figcaption>
           </figure>
         </a>
 
-        <a class="m-card" href="#view-mouse">
+        <a class="m-card" href="#m-mouse">
           <figure>
-            <img src="../webcontent/rat.png" alt="Toy mouse render." loading="lazy">
+            <img src="../webcontent/rat.png"
+                 alt="Toy mouse render." loading="lazy" />
             <figcaption>Toy Mouse</figcaption>
           </figure>
         </a>
       </div>
     </section>
 
-    <!-- ========= DESKTOP: 3-card grid ========= -->
+    <!-- =========================
+         DESKTOP: 3-card grid
+         ========================= -->
     <section class="projects-desktop">
       <div class="cards">
-        <!-- Card 1 -->
+        <!-- Card 1: Fountain of Dream -->
         <article class="project-card" id="fountain">
           <figure class="card-media">
             <video class="media-fit" controls preload="metadata" playsinline>
-              <source src="../webcontent/fountainofdreams.mp4" type="video/mp4" />
+              <source src="../webcontent/fountainofdreams.html" type="video/mp4" />
             </video>
           </figure>
           <div class="card-footer">
             <h3>Fountain of Dream</h3>
-            <!-- “View” now opens the full video in a new tab -->
-            <a class="btn btn--primary" href="../webcontent/fountainofdreams.mp4" target="_blank" rel="noopener">View</a>
+            <button class="btn btn--primary" type="button">View</button>
           </div>
           <div class="card-desc">
-            Soft neon palette, reflective surfaces, subtle camera drift. Emission shaders + compositor glow.
+            Soft neon palette, reflective surfaces, subtle camera drift. Emission shaders and compositor glow.
           </div>
         </article>
 
-        <!-- Card 2 -->
+        <!-- Card 2: Wine labels -->
         <article class="project-card" id="labels">
           <figure class="card-media">
             <img class="media-fit"
@@ -127,14 +159,14 @@
           </figure>
           <div class="card-footer">
             <h3>Wine Labels</h3>
-            <a class="btn btn--primary" href="../webcontent/winelables.png" target="_blank" rel="noopener">View</a>
+            <button class="btn btn--primary" type="button">View</button>
           </div>
           <div class="card-desc">
-            Silhouettes-only system. Overlaps, limited palette, quick shelf read for organic red wine.
+            Silhouettes-only system: overlaps, limited palette, and fast shelf read for organic red wine.
           </div>
         </article>
 
-        <!-- Card 3 -->
+        <!-- Card 3: Toy mouse render -->
         <article class="project-card" id="toy-mouse">
           <figure class="card-media">
             <img class="media-fit"
@@ -143,13 +175,72 @@
           </figure>
           <div class="card-footer">
             <h3>Toy Mouse Render</h3>
-            <a class="btn btn--primary" href="../webcontent/rat.png" target="_blank" rel="noopener">View</a>
+            <button class="btn btn--primary" type="button">View</button>
           </div>
           <div class="card-desc">
-            Steampunk toy study: hard-surface modeling + emissive accents and cozy rim light.
+            Steampunk toy study focusing on hard-surface modeling, emissive accents, and cozy rim lighting.
           </div>
         </article>
       </div>
+    </section>
+
+    <!-- =========================
+         NEW: Projects summary table
+         ========================= -->
+    <section class="project-table-section">
+      <h2>Project Summary</h2>
+
+      <figure class="table-wrap">
+        <figcaption>
+          Snapshot of selected projects, tools used, and primary focus.
+        </figcaption>
+
+        <table class="projects-table">
+          <thead>
+            <tr>
+              <th scope="col">Project</th>
+              <th scope="col">Type</th>
+              <th scope="col">Tools</th>
+              <th scope="col">Focus</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">Fountain of Dream</th>
+              <td>3D Animation</td>
+              <td>Blender, Eevee</td>
+              <td>Lighting, camera movement, mood</td>
+            </tr>
+            <tr>
+              <th scope="row">Wine Labels</th>
+              <td>Illustration</td>
+              <td>Clip Studio / Photoshop</td>
+              <td>Silhouette, color, fast shelf-read</td>
+            </tr>
+            <tr>
+              <th scope="row">Toy Mouse Render</th>
+              <td>3D Render</td>
+              <td>Blender, Cycles</td>
+              <td>Hard-surface modeling, materials</td>
+            </tr>
+            <tr>
+              <th scope="row">Portfolio Site</th>
+              <td>Web</td>
+              <td>HTML, CSS</td>
+              <td>Responsive layout, accessibility</td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <td colspan="4">
+                More projects coming as the portfolio grows.
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </figure>
     </section>
   </main>
 
@@ -167,6 +258,8 @@
     </address>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
