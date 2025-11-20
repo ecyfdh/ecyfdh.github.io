@@ -517,3 +517,91 @@ h1{
   display:block; height:0; overflow:hidden; line-height:0;
   margin:0; padding:0;
 }
+
+/* =========================
+   Projects table
+   ========================= */
+
+.project-table-section{
+  margin: 2.5rem 0;
+}
+
+.project-table-section h2{
+  margin-bottom: 0.75rem;
+}
+
+.table-wrap{
+  max-width: 100%;
+  overflow-x: auto;              /* lets small screens scroll if needed */
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.02);
+}
+
+/* caption for accessibility + context */
+.table-wrap figcaption{
+  font-size: 0.95rem;
+  margin: 0;
+  padding: 0.75rem 1rem 0.25rem;
+  color: var(--muted);
+}
+
+.projects-table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+/* border around table + subtle cell borders */
+.projects-table,
+.projects-table th,
+.projects-table td{
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+.projects-table th,
+.projects-table td{
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+
+/* header row */
+.projects-table thead{
+  background: rgba(220,105,224,0.18);   /* uses brand purple */
+}
+.projects-table thead th{
+  font-family: 'Montserrat','Lato',sans-serif;
+  font-weight: 700;
+}
+
+/* data rows: 1st & 3rd (and all odd rows) share same bg */
+.projects-table tbody tr:nth-child(odd){
+  background: rgba(255,255,255,0.03);
+}
+
+/* 2nd, 4th rows alternate */
+.projects-table tbody tr:nth-child(even){
+  background: rgba(255,255,255,0.08);
+}
+
+/* footer */
+.projects-table tfoot td{
+  font-style: italic;
+  background: rgba(0,0,0,0.4);
+}
+
+/* responsive tweaks for smaller screens */
+@media (max-width: 600px){
+  .projects-table{
+    font-size: 0.85rem;
+  }
+  .projects-table th,
+  .projects-table td{
+    padding: 0.45rem 0.55rem;
+  }
+  .table-wrap{
+    /* keep scroll hint on phones */
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.4);
+  }
+}
+
