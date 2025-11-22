@@ -19,6 +19,10 @@
 
   <!-- Page-local layout: text left, media right; left-aligned measure -->
   <style>
+     .projects-mobile .m-slide{ display:none; }
+    .projects-mobile .m-slide:target{ display:block; }
+    .projects-mobile:has(.m-slide:target) .m-grid{ display:none; }
+    
     /* keep readable width and left align inside the grid */
     .measure{
       max-width: 65ch;
