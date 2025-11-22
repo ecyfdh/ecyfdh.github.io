@@ -4,7 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Elizabeth Yenzer – Portfolio</title>
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
   <!-- site-wide + nav styles -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="nav.css" />
@@ -39,6 +41,11 @@
   <!-- sticky header with logo + nav -->
   <header class="site-header">
     <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
+
+    <!-- mobile hamburger (same structure as other pages) -->
+    <input type="checkbox" id="nav-check" class="nav-check" />
+    <label for="nav-check" class="nav-toggle" aria-label="Toggle menu">☰</label>
+
     <nav class="site-nav" aria-label="Primary">
       <ul class="nav-list">
         <li><a href="index.html" aria-current="page">Home</a></li>
@@ -47,52 +54,54 @@
         <li><a href="reflection.html">Reflection</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <!-- mobile hamburger -->
-    <input type="checkbox" id="nav-check" class="nav-check" />
-    <label for="nav-check" class="nav-toggle" aria-label="Toggle menu">☰</label>
-
     </nav>
   </header>
 
   <main id="main" role="region" aria-label="Hero Section">
     <div class="hero-grid">
       <section>
-      
         <h1>Hi, I’m Elizabeth Yenzer.</h1>
         <p class="lead">
           I’m an animator with a particular focus on 3D animation, where I enjoy bringing ideas and characters to life in dynamic and engaging ways. My passion lies in visual storytelling, using movement, design, and expression to convey emotions and narratives that connect with people. Whether it’s crafting detailed worlds or subtle character moments, I’m driven by the challenge of making stories resonate through animation.
         </p>
 
         <div class="cta-row">
-          <a class="btn btn--primary" href="projects.html">See my work</a>
+          <a class="btn btn--primary" href="project.html">See my work</a>
           <a class="btn btn--ghost" href="contact.html">Contact</a>
         </div>
 
-        <blockquote class="quote">“Every artist has thousands of bad drawings in them and the only way to get rid of them is to draw them out.”</blockquote>
+        <blockquote class="quote">
+          “Every artist has thousands of bad drawings in them and the only way to get rid of them is to draw them out.”
+        </blockquote>
       </section>
 
       <aside>
         <!-- square-ish image card on the side -->
         <div class="card" style="max-height: 420px;">
-          <img src="hero-placeholder.jpg" alt>
+          <img src="hero-placeholder.jpg" alt="Sample project image" />
         </div>
       </aside>
     </div>
   </main>
-      <footer class="site-footer container">
-  <small>© <span id="year"></span> Elizabeth Yenzer</small>
 
-  <address class="contact">
-    <a class="contact-item" href="tel:5551234567">
-      <img class="icon" src="phone.png" alt="" aria-hidden="true">
-      <span>(555) 123-4567</span>
-    </a>
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Elizabeth Yenzer</small>
 
-    <a class="contact-item" href="mailto:hello@example.com">
-      <img class="icon" src="email.png" alt="" aria-hidden="true">
-      <span>hello@example.com</span>
-    </a>
-  </address>
+    <address class="contact">
+      <a class="contact-item" href="tel:5551234567">
+        <img class="icon" src="phone.png" alt="" aria-hidden="true">
+        <span>(555) 123-4567</span>
+      </a>
+
+      <a class="contact-item" href="mailto:hello@example.com">
+        <img class="icon" src="email.png" alt="" aria-hidden="true">
+        <span>hello@example.com</span>
+      </a>
+    </address>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
