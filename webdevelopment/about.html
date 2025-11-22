@@ -19,10 +19,6 @@
 
   <!-- Page-local layout: text left, media right; left-aligned measure -->
   <style>
-     .projects-mobile .m-slide{ display:none; }
-    .projects-mobile .m-slide:target{ display:block; }
-    .projects-mobile:has(.m-slide:target) .m-grid{ display:none; }
-    
     /* keep readable width and left align inside the grid */
     .measure{
       max-width: 65ch;
@@ -62,6 +58,11 @@
 
   <header class="site-header">
     <img class="site-logo" src="logo.png" alt="Elizabeth Yenzer — Site Logo" />
+
+    <!-- mobile hamburger (checkbox + label) -->
+    <input type="checkbox" id="nav-check" class="nav-check" />
+    <label for="nav-check" class="nav-toggle" aria-label="Toggle menu">☰</label>
+
     <nav class="site-nav" aria-label="Primary">
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
@@ -70,10 +71,6 @@
         <li><a href="reflection.html">Reflection</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-        <!-- mobile hamburger -->
-    <input type="checkbox" id="nav-check" class="nav-check" />
-    <label for="nav-check" class="nav-toggle" aria-label="Toggle menu">☰</label>
-
     </nav>
   </header>
 
