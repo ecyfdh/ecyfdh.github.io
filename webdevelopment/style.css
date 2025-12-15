@@ -4,11 +4,11 @@
 
 /* Color tokens (purple theme) */
 :root{
-  --bg: #140914;       /* deep dark purple */
-  --fg: #ffffff;       /* white text */
-  --muted: #AA51AD;    /* softer magenta purple for paragraphs */
-  --brand: #DC69E0;    /* bright highlight purple (headings/badge) */
-  --cta: #78397A;      /* button/link default */
+  --bg: #140914;
+  --fg: #ffffff;
+  --muted: #AA51AD;
+  --brand: #DC69E0;
+  --cta: #78397A;
   --cta-hover: #462147;
 }
 
@@ -41,11 +41,15 @@ h1, h2, h3, h4, h5, h6{
   color: var(--brand);
 }
 
-/* paragraphs */
+h1{
+  font-weight: 800;
+  font-size: clamp(2rem, 3.6vw + 1rem, 3.75rem);
+  margin: .25rem 0 .75rem;
+}
+
 p{
   color: var(--fg);
   font-size: 18px;
-  line-height: 1.6;
   margin: 0 0 1rem 0;
   max-width: 70ch;
 }
@@ -109,12 +113,6 @@ a{
   box-shadow: 0 8px 30px rgba(220,105,224,.25);
 }
 
-h1{
-  font-weight: 800;
-  font-size: clamp(2rem, 3.6vw + 1rem, 3.75rem);
-  margin: .25rem 0 .75rem;
-}
-
 .lead{
   font-size: 1.125rem;
   color: var(--fg);
@@ -146,35 +144,43 @@ h1{
   height: 100%;
   min-height: 360px;
 }
-.card img{ width: 100%; height: 100%; object-fit: cover; }
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* ------------------------------
    Helpers
    ------------------------------ */
+
 .hidden{ display: none !important; }
 
-.page { padding-top: 96px; }          /* space under sticky header */
-.flow > * + * { margin-top: 1rem; }   /* nice vertical rhythm */
+.page { padding-top: 96px; }
+.flow > * + * { margin-top: 1rem; }
 
-/* keep paragraphs to a readable line length */
 .measure { max-width: 65ch; margin-inline: auto; }
 
 /* ------------------------------
    About page list styles
    ------------------------------ */
+
 .about-list{
   list-style-type: square;
   margin: 1rem 0 2rem;
   padding-left: 1.25rem;
 }
+
 .about-list li{
   font-size: 1.05rem;
   line-height: 1.6;
-  color: var(--muted, #AA51AD);
+  color: var(--muted);
   margin: .35rem 0;
   transition: color .2s ease, transform .08s ease;
 }
-.about-list li::marker{ color: var(--brand, #DC69E0); }
+
+.about-list li::marker{ color: var(--brand); }
+
 .about-list li:hover,
 .about-list li:focus-within{
   color: #ffffff;
@@ -186,7 +192,7 @@ h1{
   display: inline-block;
   padding: 12px 16px;
   margin: 12px 0 24px;
-  border: 2px solid var(--brand, #DC69E0);
+  border: 2px solid var(--brand);
   border-radius: 10px;
   background: rgba(220,105,224, 0.12);
   color: #ffffff;
@@ -195,35 +201,42 @@ h1{
   letter-spacing: .2px;
   transition: background .2s ease, transform .08s ease, border-color .2s ease;
 }
+
 .resume-link:hover{
   background: rgba(220,105,224, 0.22);
   transform: translateY(1px);
   border-color: #ffffff;
 }
+
 .resume-link:focus-visible{
-  outline: 2px dashed var(--brand, #DC69E0);
+  outline: 2px dashed var(--brand);
   outline-offset: 3px;
 }
 
 /* ------------------------------
    Contact form styles
    ------------------------------ */
+
 .form-wrap{
   max-width: 720px;
   margin-left: 0;
   margin-right: auto;
 }
+
 @media (max-width: 520px){
   .form-wrap{ margin-left:auto; margin-right:auto; }
 }
+
 .form{ display: grid; gap: 1rem; }
 .form-row{ display: grid; gap: .5rem; }
+
 .form label{
   font-weight: 700;
   font-family: 'Montserrat','Lato',sans-serif;
   letter-spacing: .2px;
   color: var(--fg);
 }
+
 .input, .select, .textarea{
   width: 100%;
   padding: 12px 14px;
@@ -234,15 +247,28 @@ h1{
   font: inherit;
   line-height: 1.4;
 }
-.input::placeholder, .textarea::placeholder{ color: rgba(255,255,255,.55); }
+
+.input::placeholder,
+.textarea::placeholder{ color: rgba(255,255,255,.55); }
+
 .input:focus, .select:focus, .textarea:focus{
   outline: 2px solid var(--brand);
   outline-offset: 2px;
   border-color: transparent;
 }
+
 .textarea{ min-height: 160px; resize: vertical; }
-.form-actions{ display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .5rem; }
+
+.form-actions{
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: .5rem;
+}
+
 .helper{ font-size: .9rem; color: rgba(255,255,255,.7); }
+
+/* nicer native select */
 .select{
   appearance: none;
   background-image:
@@ -261,6 +287,7 @@ h1{
 /* ------------------------------
    Footer contact row
    ------------------------------ */
+
 .site-footer{
   display: flex;
   flex-wrap: wrap;
@@ -271,12 +298,14 @@ h1{
   padding-bottom: 1.25rem;
   border-top: 1px solid rgba(255,255,255,.12);
 }
+
 .contact{
   display: flex;
   flex-wrap: wrap;
   gap: .75rem 1.25rem;
   font-style: normal;
 }
+
 .contact-item{
   display: inline-flex;
   align-items: center;
@@ -284,23 +313,22 @@ h1{
   text-decoration: none;
   color: var(--fg);
 }
-/* Simple hover animation for footer icons */
+
 .icon{
-  width: 18px;              
+  width: 18px;
   height: 18px;
   flex: 0 0 18px;
-  filter: drop-shadow(0 0 0 transparent);
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-/* When you hover/focus the contact link, animate the icon */
 .contact-item:hover .icon,
 .contact-item:focus-visible .icon{
-  transform: scale(1.2); /* slight zoom */
-  filter: drop-shadow(0 0 6px rgba(220,105,224,0.7)); /* soft purple glow */
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px rgba(220,105,224,0.7));
 }
 
 .contact-item span{ line-height: 1.3; }
+
 @media (max-width: 520px){
   .site-footer{ flex-direction: column; align-items: flex-start; }
   .contact{ gap: .5rem 1rem; }
@@ -309,15 +337,17 @@ h1{
 /* ------------------------------
    Print layout — ABOUT page only
    ------------------------------ */
-@media print {
+
+@media print{
   @page { margin: 1in; }
 
-  body.about {
+  body.about{
     font-family: Georgia, "Times New Roman", Times, serif !important;
     color: #000 !important;
     background: #fff !important;
   }
-  body.about * {
+
+  body.about *{
     color: #000 !important;
     background: transparent !important;
     text-shadow: none !important;
@@ -326,56 +356,59 @@ h1{
     print-color-adjust: exact;
   }
 
-  body.about > * { display: none !important; }
+  body.about > *{ display: none !important; }
   body.about main,
-  body.about footer { display: block !important; }
+  body.about footer{ display: block !important; }
 
-  body.about main * { display: none !important; }
+  body.about main *{ display: none !important; }
 
   body.about main .container,
   body.about main .about-grid,
   body.about main section,
-  body.about main .measure { display: block !important; }
+  body.about main .measure{ display: block !important; }
 
-  body.about main h1 {
+  body.about main h1{
     display: block !important;
     font-size: 24pt;
     line-height: 1.15;
     margin: 0 0 10pt;
   }
 
-  body.about main p:first-of-type {
+  body.about main p:first-of-type{
     display: block !important;
     font-size: 12pt;
     margin: 0 0 10pt;
   }
 
   body.about main ul.education,
-  body.about main ol.education {
+  body.about main ol.education{
     display: block !important;
     font-size: 12pt;
     margin: 0;
     padding-left: 18pt;
   }
+
   body.about main ul.education li,
-  body.about main ol.education li {
+  body.about main ol.education li{
     display: list-item !important;
     margin: 0 0 6pt;
   }
 
-  body.about .about-grid aside { display: none !important; }
+  body.about .about-grid aside{ display: none !important; }
 
-  body.about footer.site-footer {
+  body.about footer.site-footer{
     display: block !important;
     border: none !important;
     padding: 0 !important;
     margin-top: 12pt;
   }
-  body.about footer .contact { display: block !important; }
+
+  body.about footer .contact{ display: block !important; }
   body.about footer small,
   body.about footer img,
-  body.about footer .icon { display: none !important; }
-  body.about footer .contact .contact-item {
+  body.about footer .icon{ display: none !important; }
+
+  body.about footer .contact .contact-item{
     display: block !important;
     text-decoration: none !important;
     margin: 0 0 6pt;
@@ -385,91 +418,90 @@ h1{
   body.about p,
   body.about ul,
   body.about ol,
-  body.about footer { page-break-inside: avoid; }
+  body.about footer{ page-break-inside: avoid; }
+
+  .print-only{ display: block !important; }
+  .print-only li{ display: list-item !important; }
 }
 
-.print-only { display: none !important; }
-@media print { .print-only { display: block !important; } .print-only li{ display:list-item !important; } }
+.print-only{ display: none !important; }
 
 /* =========================
    PROJECTS PAGE
    ========================= */
 
 /* Desktop grid */
-.projects-desktop{ display:none; }
-.cards{
-  display:grid; gap:1.25rem; align-items:start;
-}
+.projects-desktop{ display: none; }
+.cards{ display: grid; gap: 1.25rem; align-items: start; }
+
 @media (min-width: 880px){
-  .projects-desktop{ display:block; }
+  .projects-desktop{ display: block; }
   .cards{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* Card */
+/* Desktop cards */
 .project-card{
-  position: relative;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:16px; background:rgba(255,255,255,.03);
-  overflow:hidden; display:flex; flex-direction:column;
-}
-.card-media{
-  position:relative; margin:0; aspect-ratio: 4 / 5;
-  overflow:hidden;
-}
-.media-fit{
-  width:100%; height:100%; object-fit:cover; display:block;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.card-footer{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:.75rem; padding:.8rem .9rem;
-}
-.card-footer h3{ margin:0; font-size:1.05rem; color:var(--fg); }
-
-/* ==== Simplify project card descriptions (no hover pop-up) ==== */
-.card-desc{
-  position: static !important;      /* no overlay */
-  padding: 0.75rem 0.9rem 1rem;
-  margin-top: 0;
-  opacity: 1 !important;            /* always visible */
-  transform: none !important;
-  background: none !important;
-  color: var(--muted);              /* softer purple text */
-  text-shadow: none;
-  pointer-events: auto;
-}
-
-/* remove the dark fade that sat behind the text */
-.card-desc::before{
-  display: none !important;
-}
-
-/* hovering/focus does not change it anymore */
-.project-card:hover .card-desc,
-.project-card:focus-within .card-desc{
-  opacity: 1;
-  transform: none;
-}
-
-
-/* ---------- MOBILE: viewer + grid (no arrows) ---------- */
-.projects-mobile{ display:block; margin:1rem 0 2rem; }
-@media (min-width: 880px){ .projects-mobile{ display:none; } }
-
-/* fixed viewer area that never pushes layout */
-.m-viewer{
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:16px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
   background: rgba(255,255,255,.03);
-  padding:12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-media{
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.25);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.media-fit{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain; /* show full image/video */
+  background: transparent;
+}
+
+.card-footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .8rem .9rem;
+}
+
+.card-footer h3{
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--fg);
+}
+
+/* descriptions are not hover popups */
+.card-desc{
+  padding: 0.75rem 0.9rem 1rem;
+  color: var(--muted);
+}
+
+/* Mobile section shows, desktop hides */
+.projects-mobile{ display: block; margin: 1rem 0 2rem; }
+@media (min-width: 880px){ .projects-mobile{ display: none; } }
+
+/* Mobile viewer */
+.m-viewer{
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  background: rgba(255,255,255,.03);
+  padding: 12px;
   margin-bottom: .9rem;
 }
 
-/* keep viewer content visible without scrolling */
 .m-stage{
-  position: relative;
   width: 100%;
-  max-height: 45vh;           /* keeps it “big but not scrolly” */
+  max-height: 45vh;
   overflow: hidden;
   border-radius: 12px;
   display: grid;
@@ -477,73 +509,89 @@ h1{
   background: rgba(0,0,0,.15);
 }
 
-/* each view (video/image) */
 .m-view{ display: none; width: 100%; }
-.m-view.default{ display: block; } /* default selection */
+.m-view.default{ display: block; }
 
 .m-view video,
 .m-view img,
 .m-view iframe{
   width: 100%;
   height: 100%;
-  object-fit: contain;         /* show full media nicely */
   display: block;
+  object-fit: contain;
+  background: rgba(0,0,0,.25);
 }
 
-/* thumb grid */
+/* Thumbnail grid */
 .m-grid{
-  display:grid; gap:.75rem;
+  display: grid;
+  gap: .75rem;
   grid-template-columns: repeat(2, minmax(0,1fr));
 }
-.m-card{ display:block; text-decoration:none; color:inherit; }
-.m-card figure{
-  margin:0; border:1px solid rgba(255,255,255,.12);
-  border-radius:12px; overflow:hidden; background:rgba(255,255,255,.03);
-}
-.m-card img, .m-card video{
-  width:100%; height:auto; display:block; aspect-ratio:4/5; object-fit:cover;
-}
-.m-card figcaption{ padding:.5rem .6rem; font-weight:700; font-size:.95rem; }
 
-/* show selected view via :target */
+.m-card{ display: block; text-decoration: none; color: inherit; }
+
+.m-card figure{
+  margin: 0;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,.03);
+}
+
+.m-card img,
+.m-card video{
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: contain; /* show full thumbnail */
+  background: rgba(0,0,0,.25);
+}
+
+.m-card figcaption{
+  padding: .5rem .6rem;
+  font-weight: 700;
+  font-size: .95rem;
+}
+
+/* :target viewer switching */
 #view-fountain:target ~ .m-stage .v-fountain,
 #view-labels:target  ~ .m-stage .v-labels,
 #view-mouse:target   ~ .m-stage .v-mouse{
-  display:block;
+  display: block;
 }
+
 #view-fountain:target ~ .m-stage .m-view:not(.v-fountain),
 #view-labels:target  ~ .m-stage .m-view:not(.v-labels),
 #view-mouse:target   ~ .m-stage .m-view:not(.v-mouse){
-  display:none;
+  display: none;
 }
 
-/* make the anchor markers tiny and out of the way */
 .m-anchor{
-  display:block; height:0; overflow:hidden; line-height:0;
-  margin:0; padding:0;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* =========================
    Projects table
    ========================= */
 
-.project-table-section{
-  margin: 2.5rem 0;
-}
-
-.project-table-section h2{
-  margin-bottom: 0.75rem;
-}
+.project-table-section{ margin: 2.5rem 0; }
+.project-table-section h2{ margin-bottom: 0.75rem; }
 
 .table-wrap{
   max-width: 100%;
-  overflow-x: auto;              /* lets small screens scroll if needed */
+  overflow-x: auto;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,.18);
   background: rgba(255,255,255,.02);
 }
 
-/* caption for accessibility + context */
 .table-wrap figcaption{
   font-size: 0.95rem;
   margin: 0;
@@ -557,7 +605,6 @@ h1{
   font-size: 0.95rem;
 }
 
-/* border around table + subtle cell borders */
 .projects-table,
 .projects-table th,
 .projects-table td{
@@ -570,78 +617,31 @@ h1{
   text-align: left;
 }
 
-/* header row */
 .projects-table thead{
-  background: rgba(220,105,224,0.18);   /* uses brand purple */
+  background: rgba(220,105,224,0.18);
 }
+
 .projects-table thead th{
   font-family: 'Montserrat','Lato',sans-serif;
   font-weight: 700;
 }
 
-/* data rows: 1st & 3rd (and all odd rows) share same bg */
 .projects-table tbody tr:nth-child(odd){
   background: rgba(255,255,255,0.03);
 }
 
-/* 2nd, 4th rows alternate */
 .projects-table tbody tr:nth-child(even){
   background: rgba(255,255,255,0.08);
 }
 
-/* footer */
 .projects-table tfoot td{
   font-style: italic;
   background: rgba(0,0,0,0.4);
 }
 
-/* responsive tweaks for smaller screens */
 @media (max-width: 600px){
-  .projects-table{
-    font-size: 0.85rem;
-  }
+  .projects-table{ font-size: 0.85rem; }
   .projects-table th,
-  .projects-table td{
-    padding: 0.45rem 0.55rem;
-  }
-  .table-wrap{
-    /* keep scroll hint on phones */
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.4);
-  }
-/* =========================
-   Projects: show FULL media (no cropping)
-   ========================= */
-
-/* Desktop cards */
-.projects-desktop .card-media{
-  /* keep your tile shape, but center the media */
-  display: grid;
-  place-items: center;
-  background: rgba(0,0,0,.25); /* “letterbox” background */
+  .projects-table td{ padding: 0.45rem 0.55rem; }
+  .table-wrap{ box-shadow: inset 0 0 0 1px rgba(0,0,0,0.4); }
 }
-
-.projects-desktop .media-fit{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;     /* THIS is the key change */
-  background: transparent;
-}
-
-/* Mobile thumbnails */
-.projects-mobile .m-card img,
-.projects-mobile .m-card video{
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;     /* keep the neat grid tiles */
-  object-fit: contain;     /* show full image/frame */
-  background: rgba(0,0,0,.25);
-}
-
-/* Mobile “detail view” media (big view) */
-.projects-mobile .artifact-media{
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  background: rgba(0,0,0,.25);
-}
-
