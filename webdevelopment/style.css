@@ -608,5 +608,40 @@ h1{
     /* keep scroll hint on phones */
     box-shadow: inset 0 0 0 1px rgba(0,0,0,0.4);
   }
+/* =========================
+   Projects: show FULL media (no cropping)
+   ========================= */
+
+/* Desktop cards */
+.projects-desktop .card-media{
+  /* keep your tile shape, but center the media */
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.25); /* “letterbox” background */
+}
+
+.projects-desktop .media-fit{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* THIS is the key change */
+  background: transparent;
+}
+
+/* Mobile thumbnails */
+.projects-mobile .m-card img,
+.projects-mobile .m-card video{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;     /* keep the neat grid tiles */
+  object-fit: contain;     /* show full image/frame */
+  background: rgba(0,0,0,.25);
+}
+
+/* Mobile “detail view” media (big view) */
+.projects-mobile .artifact-media{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: rgba(0,0,0,.25);
 }
 
